@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class TurretScript : MonoBehaviour
 {
+    //This script was originally from this tutorial: https://youtu.be/Fj2JqISRR4s
+    //Shooting elements were added onto it afterwards, using script from this video: https://youtu.be/wZ2UUOC17AY
+
+    //Shooting Config
+    public float timeBetweenAttacks;
+    bool alreadyAttacked;
+    public GameObject projectile;
+    public Transform MuzzlePosition;
+
+
     public enum TargetingType { First, Strong, Weak, Last }
 
     public TargetingType TargetingSystemToUse = TargetingType.First;
@@ -16,13 +26,13 @@ public class TurretScript : MonoBehaviour
 
     public float AttackSpeed = 1f;
     public float Damage = 5f;
-    float Delay;
+    float AttackDelay;
 
     private void Start()
     {
 
         WorldAccessData = FindObjectOfType<GlobalData>();
-        Delay = AttackSpeed;
+        AttackDelay = AttackSpeed;
     }
 
     private void Update()
@@ -45,16 +55,40 @@ public class TurretScript : MonoBehaviour
 
     private void Attack()
     {
-        if(Delay > 0f)
+        if(!alreadyAttacked)
         {
-            Delay -= Time.deltaTime;
-        }
-        else if(Delay <= 0f)
-        {
-            Target.GetComponent<EnemyScript>().TakeDamage(Damage);
+            //New Shooting
+
+            //Make Bullet Appear
+            Rigidbody rb = Instantiate(projectile, MuzzlePosition.position,Quaternion.identity).GetComponent<Rigidbody>();
+
+            rb.AddForce(transform.forward * 256f, ForceMode.Impulse);
+            rb.AddForce(transform.up * 0f, ForceMode.Impulse);
+
+            //Set alreadyAttacked to be false, set attack delay and continue to look for enemies
+            alreadyAttacked = true;
+            Invoke(nameof(ResetAttack), timeBetweenAttacks);
             LookForEnemies();
-            Delay = AttackSpeed;
+
+
+            //Old Shooting
+            //Target.GetComponent<TowerDefenceAITest_V1>().TakeDamage(Damage);
+            //LookForEnemies();
+            //AttackDelay = AttackSpeed;
         }
+        else if(alreadyAttacked)
+        {
+
+            LookForEnemies();
+
+            //Old Code
+            //AttackDelay -= Time.deltaTime;
+        }
+    }
+
+    private void ResetAttack()
+    {
+        alreadyAttacked = false;
     }
 
     #region TargetingSystems
@@ -102,11 +136,11 @@ public class TurretScript : MonoBehaviour
             {
                 if (Vector3.Distance(transform.position, Enemy.transform.position) <= Range)
                 {
-                    EnemyScript EnemySC = Enemy.GetComponent<EnemyScript>();
+                    TowerDefenceAITest_V1 EnemySC = Enemy.GetComponent<TowerDefenceAITest_V1>();
 
-                    if (EnemySC.Health > HighestHP)
+                    if (EnemySC.health > HighestHP)
                     {
-                        HighestHP = EnemySC.Health;
+                        HighestHP = EnemySC.health;
                         StrongestEnemy = Enemy;
                     }
                 }
@@ -136,7 +170,7 @@ public class TurretScript : MonoBehaviour
             {
                 if (Vector3.Distance(transform.position, Enemy.transform.position) <= Range)
                 {
-                    EnemyScript EnemySC = Enemy.GetComponent<EnemyScript>();
+                    TowerDefenceAITest_V1 EnemySC = Enemy.GetComponent<TowerDefenceAITest_V1>();
 
                     if (EnemySC.TrueDistance < ClosestDistance)
                     {
@@ -169,11 +203,11 @@ public class TurretScript : MonoBehaviour
             {
                 if (Vector3.Distance(transform.position, Enemy.transform.position) <= Range)
                 {
-                    EnemyScript EnemySC = Enemy.GetComponent<EnemyScript>();
+                    TowerDefenceAITest_V1 EnemySC = Enemy.GetComponent<TowerDefenceAITest_V1>();
 
-                    if (EnemySC.Health < LowestHP)
+                    if (EnemySC.health < LowestHP)
                     {
-                        LowestHP = EnemySC.Health;
+                        LowestHP = EnemySC.health;
                         StrongestEnemy = Enemy;
                     }
                 }
@@ -202,7 +236,7 @@ public class TurretScript : MonoBehaviour
             {
                 if (Vector3.Distance(transform.position, Enemy.transform.position) <= Range)
                 {
-                    EnemyScript EnemySC = Enemy.GetComponent<EnemyScript>();
+                    TowerDefenceAITest_V1 EnemySC = Enemy.GetComponent<TowerDefenceAITest_V1>();
 
                     if (EnemySC.TrueDistance > ClosestDistance)
                     {

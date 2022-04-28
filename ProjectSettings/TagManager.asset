@@ -7,6 +7,8 @@ TagManager:
   - PathTag
   - GrassFloorTag
   - EnemyTag
+  - TowerTag
+  - ProjectileTag
   layers:
   - Default
   - TransparentFX
@@ -17,8 +19,8 @@ TagManager:
   - PathLayer
   - GrassFloorLayer
   - EnemyLayer
-  - 
-  - 
+  - TowerLayer
+  - ProjectileLayer
   - 
   - 
   - 

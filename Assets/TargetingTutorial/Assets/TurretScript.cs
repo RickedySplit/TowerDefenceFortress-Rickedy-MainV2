@@ -60,7 +60,7 @@ public class TurretScript : MonoBehaviour
             //New Shooting
 
             //Make Bullet Appear
-            Rigidbody rb = Instantiate(projectile, MuzzlePosition.position,Quaternion.identity).GetComponent<Rigidbody>();
+            Rigidbody rb = Instantiate(projectile, MuzzlePosition.position, MuzzlePosition.rotation).GetComponent<Rigidbody>();
 
             rb.AddForce(transform.forward * 256f, ForceMode.Impulse);
             rb.AddForce(transform.up * 0f, ForceMode.Impulse);

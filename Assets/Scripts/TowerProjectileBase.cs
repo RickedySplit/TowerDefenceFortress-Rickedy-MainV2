@@ -14,12 +14,14 @@ public class TowerProjectileBase : MonoBehaviour
 
     //Damage
     public int explosionDamage;
+    public int damage;
     public float explosionRange;
 
     //Lifetime
     public int maxCollisions; //will die when reachning maximum amount of collisions with anything
     public float maxLifetime; //will die on lifetime expiring
     public bool explodeOnTouch; //will die on contact with enemy
+    public GameObject impactVFX;
 
     int collisions;
     PhysicMaterial physics_mat;
@@ -63,6 +65,22 @@ public class TowerProjectileBase : MonoBehaviour
 
         //Explode if bullet hits an enemy directly and explodeOnTouch is activated
         if (collision.collider.CompareTag("EnemyTag") && explodeOnTouch) Explode();
+
+        GameObject other = collision.gameObject;
+        if (collision.collider.CompareTag("EnemyTag") && !explodeOnTouch)
+        {
+            var impact = Instantiate (impactVFX, collision.contacts[0].point, Quaternion.identity) as GameObject;
+            Destroy(impact, 2);
+        }
+
+        {
+            //collided = true;
+            other.GetComponent<TowerDefenceAITest_V1>().TakeDamage(damage);
+            Debug.Log("Collided with Enemy");
+            var impact = Instantiate (impactVFX, collision.contacts[0].point, Quaternion.identity) as GameObject;
+            Destroy(impact, 2);
+            Destroy (gameObject);
+        }
     }
 
     private void OnDrawGizmosSelected()

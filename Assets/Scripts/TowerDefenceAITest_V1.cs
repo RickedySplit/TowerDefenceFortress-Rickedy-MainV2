@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.UI;
+using TMPro;
 
 public class TowerDefenceAITest_V1 : MonoBehaviour
 {
@@ -23,6 +26,7 @@ public class TowerDefenceAITest_V1 : MonoBehaviour
     public float health = 10f;
     public float DistanceToNode;
     public float TrueDistance = 0f;
+    public TextMeshProUGUI healthText;
 
 
     // Use this for initialization
@@ -36,6 +40,8 @@ public class TowerDefenceAITest_V1 : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        healthText.text = health.ToString();
+
         // Move Enemy
         Move();
 

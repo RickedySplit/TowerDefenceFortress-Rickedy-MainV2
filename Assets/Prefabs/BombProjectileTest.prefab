@@ -224,8 +224,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2849267476107892855}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25, y: 2, z: -2.625}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2849267476295764325}
   - {fileID: 2849267475501040227}
@@ -314,11 +314,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   useGravity: 0
-  explosionDamage: 25
-  explosionRange: 1.6
+  explosionDamage: 2
+  damage: 1
+  explosionRange: 4.5
   maxCollisions: 1
-  maxLifetime: 12
+  maxLifetime: 5
   explodeOnTouch: 1
+  impactVFX: {fileID: 8468540435678448206, guid: 98cb323e8b188434e87e9e51b45b2bd9, type: 3}
 --- !u!54 &2849267476107892745
 Rigidbody:
   m_ObjectHideFlags: 0

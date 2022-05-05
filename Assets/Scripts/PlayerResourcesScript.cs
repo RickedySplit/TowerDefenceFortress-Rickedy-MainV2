@@ -48,6 +48,18 @@ public class PlayerResourcesScript : MonoBehaviour
         }
     }
 
+    public void buySniperTower()
+    {
+        if (playerMoney >= 950)
+        {
+            playerMoney -= 950;
+        }
+        else
+        {
+            Debug.Log("You're too poor to afford a Pyro Tower, P1ss Off!");
+        }
+    }
+
 
     public void Start()
     {

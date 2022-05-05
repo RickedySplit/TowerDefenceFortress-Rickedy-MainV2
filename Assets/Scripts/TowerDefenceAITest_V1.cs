@@ -28,6 +28,10 @@ public class TowerDefenceAITest_V1 : MonoBehaviour
     public float TrueDistance = 0f;
     public TextMeshProUGUI healthText;
 
+    public bool jarated = false;
+    public ParticleSystem JarateDropletParticles;
+    public float JarateTimer;
+
 
     // Use this for initialization
     private void Start()
@@ -40,6 +44,21 @@ public class TowerDefenceAITest_V1 : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (JarateTimer > 0)
+        {
+            JarateTimer -= Time.deltaTime;
+        }
+
+        if (jarated == false)
+        {
+            JarateDropletParticles.Stop();
+        }
+
+        if (JarateTimer == 0)
+        {
+            jarated = false;
+        }
+
         healthText.text = health.ToString();
 
         // Move Enemy
@@ -59,6 +78,20 @@ public class TowerDefenceAITest_V1 : MonoBehaviour
                 break;
             }
 
+        }
+    }
+
+    public void CoverInJarate()
+    {
+        if (jarated == true)
+        {
+            JarateTimer = 5f;
+        }
+        else if (jarated == false)
+        {
+            JarateDropletParticles.Play();
+            jarated = true;
+            JarateTimer = 5f;
         }
     }
 
@@ -86,11 +119,23 @@ public class TowerDefenceAITest_V1 : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
-        health -= damage;
-
-        if(health <= 0)
+        if (jarated == true)
         {
-            Destroy(gameObject);
+            health -= (damage * 2);
+
+            if(health <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
+        else if (jarated == false)
+        {
+            health -= damage;
+
+            if(health <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }   
     }
 }

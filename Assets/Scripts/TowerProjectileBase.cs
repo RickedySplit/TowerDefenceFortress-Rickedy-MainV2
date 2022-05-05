@@ -23,6 +23,9 @@ public class TowerProjectileBase : MonoBehaviour
     public bool explodeOnTouch; //will die on contact with enemy
     public GameObject impactVFX;
 
+    public bool ApplyJarateOnExplosion = false;
+    public bool ApplyJarateOnHit = false;
+
     int collisions;
     PhysicMaterial physics_mat;
 
@@ -45,8 +48,12 @@ public class TowerProjectileBase : MonoBehaviour
         Collider[] enemies = Physics.OverlapSphere(transform.position, explosionRange, EnemyLayer);
         for (int i = 0; i < enemies.Length; i++)
         {
-           //Get component of enemy and call Take Damage
-            enemies[i].GetComponent<TowerDefenceAITest_V1>().TakeDamage(explosionDamage);
+                if (ApplyJarateOnExplosion == true)
+                {
+                    enemies[i].GetComponent<TowerDefenceAITest_V1>().CoverInJarate();
+                }
+                //Get component of enemy and call Take Damage
+                enemies[i].GetComponent<TowerDefenceAITest_V1>().TakeDamage(explosionDamage);
         }
 
         //Add a small delay to projectiel destruction
@@ -75,6 +82,10 @@ public class TowerProjectileBase : MonoBehaviour
 
         {
             //collided = true;
+            if(ApplyJarateOnHit == true)
+            {
+                other.GetComponent<TowerDefenceAITest_V1>().CoverInJarate();
+            }
             other.GetComponent<TowerDefenceAITest_V1>().TakeDamage(damage);
             Debug.Log("Collided with Enemy");
             var impact = Instantiate (impactVFX, collision.contacts[0].point, Quaternion.identity) as GameObject;

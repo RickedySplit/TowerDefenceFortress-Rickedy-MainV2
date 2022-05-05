@@ -28,6 +28,9 @@ public class TurretScript : MonoBehaviour
     public float Damage = 5f;
     float AttackDelay;
 
+    public float ProjectileForwardSpeed = 256f;
+    public float ProjectileUpwardSpeed = 0f;
+
     private void Start()
     {
 
@@ -62,8 +65,8 @@ public class TurretScript : MonoBehaviour
             //Make Bullet Appear
             Rigidbody rb = Instantiate(projectile, MuzzlePosition.position, MuzzlePosition.rotation).GetComponent<Rigidbody>();
 
-            rb.AddForce(transform.forward * 256f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 0f, ForceMode.Impulse);
+            rb.AddForce(transform.forward * ProjectileForwardSpeed, ForceMode.Impulse);
+            rb.AddForce(transform.up * ProjectileUpwardSpeed, ForceMode.Impulse);
 
             //Set alreadyAttacked to be false, set attack delay and continue to look for enemies
             alreadyAttacked = true;

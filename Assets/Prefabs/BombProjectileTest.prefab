@@ -320,7 +320,7 @@ MonoBehaviour:
   maxCollisions: 1
   maxLifetime: 5
   explodeOnTouch: 1
-  impactVFX: {fileID: 8468540435678448206, guid: 98cb323e8b188434e87e9e51b45b2bd9, type: 3}
+  impactVFX: {fileID: 9123846632588198579, guid: 98cb323e8b188434e87e9e51b45b2bd9, type: 3}
 --- !u!54 &2849267476107892745
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -336,7 +336,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 2
 --- !u!1 &2849267476209924528
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,7 +485,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.055214316
+        value: 0.17867318
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -493,7 +493,7 @@ TrailRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.34973145
+        time: 0.6675415
         value: 0
         inSlope: 0
         outSlope: 0
@@ -506,8 +506,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0.49574798, b: 0, a: 0.47058824}
-      key1: {r: 1, g: 0.49411768, b: 0, a: 0}
+      key0: {r: 1, g: 0.49574798, b: 0, a: 0.8627451}
+      key1: {r: 1, g: 0.49411768, b: 0, a: 0.47058824}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -522,17 +522,17 @@ TrailRenderer:
       ctime5: 0
       ctime6: 0
       ctime7: 0
-      atime0: 38743
-      atime1: 65535
-      atime2: 0
-      atime3: 0
+      atime0: 16384
+      atime1: 49151
+      atime2: 65535
+      atime3: 65535
       atime4: 0
       atime5: 0
       atime6: 0
       atime7: 0
       m_Mode: 0
       m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
+      m_NumAlphaKeys: 3
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0

@@ -15,7 +15,9 @@ public class TowerDefenceAITest_V1 : MonoBehaviour
 
     // Walk speed that can be set in Inspector
     [SerializeField]
-    private float moveSpeed = 2f;
+    public float MoveSpeed = 2f;
+    public float currentMoveSpeed = 2f;
+    public float slowedMoveSpeed;
 
     // Index of current waypoint from which Enemy walks
     // to the next one
@@ -28,14 +30,20 @@ public class TowerDefenceAITest_V1 : MonoBehaviour
     public float TrueDistance = 0f;
     public TextMeshProUGUI healthText;
 
+
     public bool jarated = false;
     public ParticleSystem JarateDropletParticles;
     public float JarateTimer;
+
+    public bool BulletSlowed = false;
+    public ParticleSystem BulletSlowdownParticles;
+    public float BulletSlowdownTimer;
 
 
     // Use this for initialization
     private void Start()
     {
+        slowedMoveSpeed = MoveSpeed * 0.66f;
         GameData = FindObjectOfType<GlobalData>();
         // Set position of Enemy as position of the first waypoint
         transform.position = waypoints[waypointIndex].transform.position;
@@ -58,6 +66,25 @@ public class TowerDefenceAITest_V1 : MonoBehaviour
         {
             jarated = false;
         }
+
+
+        if (BulletSlowdownTimer > 0)
+        {
+            BulletSlowdownTimer -= Time.deltaTime;
+        }
+
+        if (BulletSlowed == false)
+        {
+            currentMoveSpeed = MoveSpeed;
+            BulletSlowdownParticles.Stop();
+        }
+
+        if (BulletSlowdownTimer == 0)
+        {
+            currentMoveSpeed = MoveSpeed;
+            BulletSlowed = false;
+        }
+
 
         healthText.text = health.ToString();
 
@@ -95,6 +122,22 @@ public class TowerDefenceAITest_V1 : MonoBehaviour
         }
     }
 
+    public void SlowDownViaBulletSlowdown()
+    {
+        if (BulletSlowed == true)
+        {
+            currentMoveSpeed = slowedMoveSpeed;
+            BulletSlowdownTimer = 2f;
+        }
+        else if (BulletSlowed == false)
+        {
+            currentMoveSpeed = slowedMoveSpeed;
+            BulletSlowdownParticles.Play();
+            BulletSlowed = true;
+            BulletSlowdownTimer = 2f;
+        }
+    }
+
     // Method that actually make Enemy walk
     private void Move()
     {
@@ -106,7 +149,7 @@ public class TowerDefenceAITest_V1 : MonoBehaviour
             // using MoveTowards method
             transform.position = Vector2.MoveTowards(transform.position,
                waypoints[waypointIndex].transform.position,
-               moveSpeed * Time.deltaTime);
+               currentMoveSpeed * Time.deltaTime);
 
             // If Enemy reaches position of waypoint he walked towards
             // then waypointIndex is increased by 1
@@ -121,7 +164,7 @@ public class TowerDefenceAITest_V1 : MonoBehaviour
     {
         if (jarated == true)
         {
-            health -= (damage * 2);
+            health -= (damage * 1.5f);
 
             if(health <= 0)
             {

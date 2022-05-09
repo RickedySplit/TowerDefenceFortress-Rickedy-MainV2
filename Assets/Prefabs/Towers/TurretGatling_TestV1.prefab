@@ -1249,7 +1249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeBetweenAttacks: 0.1
   projectile: {fileID: 2203710570268024217, guid: 2d6a2513f27cd8d4aa2e17f6c7a5a013, type: 3}
-  MuzzlePosition: {fileID: 1609711026739489949}
+  MuzzlePosition: {fileID: 9068489480046406312}
   TargetingSystemToUse: 0
   EnemyMask:
     serializedVersion: 2

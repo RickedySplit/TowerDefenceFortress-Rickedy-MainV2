@@ -237,6 +237,8 @@ MonoBehaviour:
   impactVFX: {fileID: 8885426855382600526, guid: c2d15ce62c2b5b44484680c2638758f1, type: 3}
   ApplyJarateOnExplosion: 1
   ApplyJarateOnHit: 1
+  ApplyBulletSlowdownOnExplosion: 0
+  ApplyBulletSlowdownOnHit: 0
 --- !u!65 &552936971685898990
 BoxCollider:
   m_ObjectHideFlags: 0

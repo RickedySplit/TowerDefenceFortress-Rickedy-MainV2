@@ -26,6 +26,9 @@ public class TowerProjectileBase : MonoBehaviour
     public bool ApplyJarateOnExplosion = false;
     public bool ApplyJarateOnHit = false;
 
+    public bool ApplyBulletSlowdownOnExplosion = false;
+    public bool ApplyBulletSlowdownOnHit = false;
+
     int collisions;
     PhysicMaterial physics_mat;
 
@@ -51,6 +54,10 @@ public class TowerProjectileBase : MonoBehaviour
                 if (ApplyJarateOnExplosion == true)
                 {
                     enemies[i].GetComponent<TowerDefenceAITest_V1>().CoverInJarate();
+                }
+                if (ApplyBulletSlowdownOnExplosion == true)
+                {
+                    enemies[i].GetComponent<TowerDefenceAITest_V1>().SlowDownViaBulletSlowdown();
                 }
                 //Get component of enemy and call Take Damage
                 enemies[i].GetComponent<TowerDefenceAITest_V1>().TakeDamage(explosionDamage);
@@ -85,6 +92,10 @@ public class TowerProjectileBase : MonoBehaviour
             if(ApplyJarateOnHit == true)
             {
                 other.GetComponent<TowerDefenceAITest_V1>().CoverInJarate();
+            }
+            if(ApplyBulletSlowdownOnHit == true)
+            {
+                other.GetComponent<TowerDefenceAITest_V1>().SlowDownViaBulletSlowdown();
             }
             other.GetComponent<TowerDefenceAITest_V1>().TakeDamage(damage);
             Debug.Log("Collided with Enemy");

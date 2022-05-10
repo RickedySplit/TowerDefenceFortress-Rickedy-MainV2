@@ -266,7 +266,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5122669438527793329}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2215609430335057532}
@@ -293,7 +293,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -323,7 +323,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.8255825
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -331,7 +331,7 @@ TrailRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.45081964
+        time: 0.25030392
         value: 0
         inSlope: 0
         outSlope: 0
@@ -344,8 +344,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.4669811, g: 1, b: 1, a: 0.7058824}
-      key1: {r: 0.627451, g: 1, b: 1, a: 0.27450982}
+      key0: {r: 0.34420612, g: 0.8584906, b: 0.8584906, a: 0.3529412}
+      key1: {r: 0.34509805, g: 0.8588236, b: 0.8588236, a: 0.039215688}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -669,6 +669,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2775420375611498003, guid: 274d39752fc3a634aa70f4c9589c4ebe, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 274d39752fc3a634aa70f4c9589c4ebe, type: 3}
 --- !u!4 &886113528250790148 stripped
@@ -735,6 +739,34 @@ PrefabInstance:
     - target: {fileID: 9123846632588198579, guid: 24e9a2f500355c242b83736134bb6cf1, type: 3}
       propertyPath: m_Name
       value: vfx_YellowDripsV1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9123846633951058356, guid: 24e9a2f500355c242b83736134bb6cf1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9123846633951058356, guid: 24e9a2f500355c242b83736134bb6cf1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9123846633951058358, guid: 24e9a2f500355c242b83736134bb6cf1, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9123846633951058358, guid: 24e9a2f500355c242b83736134bb6cf1, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9123846633951058358, guid: 24e9a2f500355c242b83736134bb6cf1, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9123846633951058358, guid: 24e9a2f500355c242b83736134bb6cf1, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9123846633951058358, guid: 24e9a2f500355c242b83736134bb6cf1, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24e9a2f500355c242b83736134bb6cf1, type: 3}

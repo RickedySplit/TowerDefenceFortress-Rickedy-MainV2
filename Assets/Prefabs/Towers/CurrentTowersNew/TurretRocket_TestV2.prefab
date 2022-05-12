@@ -508,6 +508,7 @@ GameObject:
   - component: {fileID: 4232320358329038069}
   - component: {fileID: 4232320358329038068}
   - component: {fileID: 4232320358329038067}
+  - component: {fileID: 2403422404413324958}
   m_Layer: 5
   m_Name: UpgradeButton
   m_TagString: Untagged
@@ -616,9 +617,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 368466448315661645}
+      - m_Target: {fileID: 2403422404413324958}
         m_TargetAssemblyTypeName: UpgradeButtonScript_V1, Assembly-CSharp
-        m_MethodName: UpgradeFireRate
+        m_MethodName: selectSelf
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -628,6 +629,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2403422404413324958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4232320358329038065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67aaf672010b37741ba599d50fb37982, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradePanel: {fileID: 0}
+  self: {fileID: 4232320359376580871}
+  UsedProjectile: {fileID: 1839531278544372681}
 --- !u!1 &4232320358739403348
 GameObject:
   m_ObjectHideFlags: 0
@@ -855,6 +871,7 @@ Transform:
   m_Children:
   - {fileID: 4232320357921889287}
   - {fileID: 4232320359253607612}
+  - {fileID: 1839531278544372661}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -966,7 +983,6 @@ GameObject:
   - component: {fileID: 4232320359376580891}
   - component: {fileID: 4232320359376580890}
   - component: {fileID: 4232320359376580889}
-  - component: {fileID: 368466448315661645}
   m_Layer: 9
   m_Name: TurretHead
   m_TagString: Untagged
@@ -1068,7 +1084,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenAttacks: 1
-  projectile: {fileID: 2849267476107892855, guid: 9da85530ac28ff246aac410b47b167f8, type: 3}
+  projectile: {fileID: 1839531278544372681}
   MuzzlePosition: {fileID: 4232320359403693852}
   TargetingSystemToUse: 0
   EnemyMask:
@@ -1082,18 +1098,6 @@ MonoBehaviour:
   ProjectileUpwardSpeed: -40
   muzzleFlash: {fileID: 539603816639001606, guid: ed38505bc3ec0c64d880036b637ed160, type: 3}
   MuzzleFlashPosition: {fileID: 4232320359403693852}
---- !u!114 &368466448315661645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4232320359376580871}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67aaf672010b37741ba599d50fb37982, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4232320359403693851
 GameObject:
   m_ObjectHideFlags: 0
@@ -1388,3 +1392,86 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1001 &6635803624172757928
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4232320359111900872}
+    m_Modifications:
+    - target: {fileID: 2534017957299909446, guid: f6fc8a1aeca19e64b8e1b2eefa9e39e1, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2903175639206495072, guid: f6fc8a1aeca19e64b8e1b2eefa9e39e1, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2903175639206495072, guid: f6fc8a1aeca19e64b8e1b2eefa9e39e1, type: 3}
+      propertyPath: m_VersionIndex
+      value: 590
+      objectReference: {fileID: 0}
+    - target: {fileID: 4889828385604402775, guid: f6fc8a1aeca19e64b8e1b2eefa9e39e1, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5012594137364078621, guid: f6fc8a1aeca19e64b8e1b2eefa9e39e1, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5012594137364078621, guid: f6fc8a1aeca19e64b8e1b2eefa9e39e1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5012594137364078621, guid: f6fc8a1aeca19e64b8e1b2eefa9e39e1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.500075
+      objectReference: {fileID: 0}
+    - target: {fileID: 5012594137364078621, guid: f6fc8a1aeca19e64b8e1b2eefa9e39e1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.8009142
+      objectReference: {fileID: 0}
+    - target: {fileID: 5012594137364078621, guid: f6fc8a1aeca19e64b8e1b2eefa9e39e1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5012594137364078621, guid: f6fc8a1aeca19e64b8e1b2eefa9e39e1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5012594137364078621, guid: f6fc8a1aeca19e64b8e1b2eefa9e39e1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5012594137364078621, guid: f6fc8a1aeca19e64b8e1b2eefa9e39e1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5012594137364078621, guid: f6fc8a1aeca19e64b8e1b2eefa9e39e1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5012594137364078621, guid: f6fc8a1aeca19e64b8e1b2eefa9e39e1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5012594137364078621, guid: f6fc8a1aeca19e64b8e1b2eefa9e39e1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5012594137364078689, guid: f6fc8a1aeca19e64b8e1b2eefa9e39e1, type: 3}
+      propertyPath: m_Name
+      value: RocketProjectileTestV3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f6fc8a1aeca19e64b8e1b2eefa9e39e1, type: 3}
+--- !u!1 &1839531278544372681 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5012594137364078689, guid: f6fc8a1aeca19e64b8e1b2eefa9e39e1, type: 3}
+  m_PrefabInstance: {fileID: 6635803624172757928}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1839531278544372661 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5012594137364078621, guid: f6fc8a1aeca19e64b8e1b2eefa9e39e1, type: 3}
+  m_PrefabInstance: {fileID: 6635803624172757928}
+  m_PrefabAsset: {fileID: 0}

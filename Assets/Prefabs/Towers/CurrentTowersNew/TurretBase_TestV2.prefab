@@ -338,6 +338,7 @@ GameObject:
   - component: {fileID: 5442261479260528355}
   - component: {fileID: 5442261479260528352}
   - component: {fileID: 5442261479260528353}
+  - component: {fileID: 2626789424719220645}
   m_Layer: 5
   m_Name: UpgradeButton
   m_TagString: Untagged
@@ -446,9 +447,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5442261479825975841}
+      - m_Target: {fileID: 2626789424719220645}
         m_TargetAssemblyTypeName: UpgradeButtonScript_V1, Assembly-CSharp
-        m_MethodName: UpgradeFireRate
+        m_MethodName: selectSelf
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -458,6 +459,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2626789424719220645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5442261479260528367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67aaf672010b37741ba599d50fb37982, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradePanel: {fileID: 0}
+  self: {fileID: 5442261479825975851}
+  UsedProjectile: {fileID: 6524307506451326419}
 --- !u!1 &5442261479337829812
 GameObject:
   m_ObjectHideFlags: 0
@@ -568,7 +584,6 @@ GameObject:
   - component: {fileID: 5442261479825975855}
   - component: {fileID: 5442261479825975852}
   - component: {fileID: 5442261479825975853}
-  - component: {fileID: 5442261479825975841}
   m_Layer: 9
   m_Name: TurretHead
   m_TagString: Untagged
@@ -667,7 +682,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenAttacks: 0.4
-  projectile: {fileID: 6494584410519970398, guid: f64114966b3a3c74992d9149240a9522, type: 3}
+  projectile: {fileID: 6524307506451326419}
   MuzzlePosition: {fileID: 5442261479337829815}
   TargetingSystemToUse: 0
   EnemyMask:
@@ -681,18 +696,6 @@ MonoBehaviour:
   ProjectileUpwardSpeed: 0
   muzzleFlash: {fileID: 539603816639001606, guid: a0ed2f68624521c4385264b4c3d40872, type: 3}
   MuzzleFlashPosition: {fileID: 5442261479337829815}
---- !u!114 &5442261479825975841
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5442261479825975851}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67aaf672010b37741ba599d50fb37982, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5442261479970305028
 GameObject:
   m_ObjectHideFlags: 0
@@ -822,6 +825,7 @@ Transform:
   m_Children:
   - {fileID: 5442261478793484553}
   - {fileID: 5442261478643809412}
+  - {fileID: 6524307506451326422}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -888,3 +892,70 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.8, y: 4, z: 1.4}
   m_Center: {x: 0, y: 1.5, z: 0.275}
+--- !u!1001 &463345863766331334
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5442261480269041336}
+    m_Modifications:
+    - target: {fileID: 6693718520997505552, guid: b5121810a9de1bb4ab8c295f86dc6bfc, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6693718520997505552, guid: b5121810a9de1bb4ab8c295f86dc6bfc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6693718520997505552, guid: b5121810a9de1bb4ab8c295f86dc6bfc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6693718520997505552, guid: b5121810a9de1bb4ab8c295f86dc6bfc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6693718520997505552, guid: b5121810a9de1bb4ab8c295f86dc6bfc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6693718520997505552, guid: b5121810a9de1bb4ab8c295f86dc6bfc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6693718520997505552, guid: b5121810a9de1bb4ab8c295f86dc6bfc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6693718520997505552, guid: b5121810a9de1bb4ab8c295f86dc6bfc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6693718520997505552, guid: b5121810a9de1bb4ab8c295f86dc6bfc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6693718520997505552, guid: b5121810a9de1bb4ab8c295f86dc6bfc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6693718520997505552, guid: b5121810a9de1bb4ab8c295f86dc6bfc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6693718520997505557, guid: b5121810a9de1bb4ab8c295f86dc6bfc, type: 3}
+      propertyPath: m_Name
+      value: DouglasTestV2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b5121810a9de1bb4ab8c295f86dc6bfc, type: 3}
+--- !u!1 &6524307506451326419 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6693718520997505557, guid: b5121810a9de1bb4ab8c295f86dc6bfc, type: 3}
+  m_PrefabInstance: {fileID: 463345863766331334}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6524307506451326422 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6693718520997505552, guid: b5121810a9de1bb4ab8c295f86dc6bfc, type: 3}
+  m_PrefabInstance: {fileID: 463345863766331334}
+  m_PrefabAsset: {fileID: 0}

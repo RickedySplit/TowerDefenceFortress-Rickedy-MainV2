@@ -13,8 +13,8 @@ public class TowerProjectileBase : MonoBehaviour
     public bool useGravity;
 
     //Damage
-    public int explosionDamage;
-    public int damage;
+    public float explosionDamage;
+    public float damage;
     public float explosionRange;
 
     //Lifetime
@@ -63,7 +63,7 @@ public class TowerProjectileBase : MonoBehaviour
                 enemies[i].GetComponent<TowerDefenceAITest_V1>().TakeDamage(explosionDamage);
         }
 
-        //Add a small delay to projectiel destruction
+        //Add a small delay to projectile destruction
         Invoke("DestroyDelay", 0.05f);
     }
 

@@ -160,7 +160,7 @@ public class TowerDefenceAITest_V1 : MonoBehaviour
             }
         }
     }
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         if (jarated == true)
         {

@@ -5,17 +5,20 @@ using UnityEngine;
 public class UpgradeButtonScript_V1 : MonoBehaviour
 {
     private TurretScript TurretScript;
+    private TowerProjectileBase TowerProjectileBase;
     public GameObject upgradePanel;
     public GameObject self;
+    public GameObject UsedProjectile;
 
     void Awake()
     {
         TurretScript = gameObject.GetComponent<TurretScript>();
+        TowerProjectileBase = gameObject.GetComponent<TowerProjectileBase>();
     }
 
     public void selectSelf()
     {
-        upgradePanel.GetComponent<UpgradePanelScript>().SetUpgradeTarget(self);
+        upgradePanel.GetComponent<UpgradePanelScript>().SetUpgradeTarget(self, UsedProjectile);
 
     }
 }

@@ -5,23 +5,17 @@ using UnityEngine;
 public class UpgradeButtonScript_V1 : MonoBehaviour
 {
     private TurretScript TurretScript;
+    public GameObject upgradePanel;
+    public GameObject self;
 
     void Awake()
     {
         TurretScript = gameObject.GetComponent<TurretScript>();
     }
 
-    public void UpgradeFireRate()
+    public void selectSelf()
     {
-        {
-            if(TurretScript.timeBetweenAttacks > 0.15f)
-            {
-                TurretScript.timeBetweenAttacks -= 0.1f;
-            }
-            else if(TurretScript.timeBetweenAttacks <= 0.15f)
-            {
-                Debug.Log("Can't upgrade Fire Rate Further");
-            }
-        }
+        upgradePanel.GetComponent<UpgradePanelScript>().SetUpgradeTarget(self);
+
     }
 }

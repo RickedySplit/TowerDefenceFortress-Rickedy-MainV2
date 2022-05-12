@@ -98,7 +98,7 @@ public class TowerProjectileBase : MonoBehaviour
                 other.GetComponent<TowerDefenceAITest_V1>().SlowDownViaBulletSlowdown();
             }
             other.GetComponent<TowerDefenceAITest_V1>().TakeDamage(damage);
-            Debug.Log("Collided with Enemy");
+            //Debug.Log("Collided with Enemy");
             var impact = Instantiate (impactVFX, collision.contacts[0].point, Quaternion.identity) as GameObject;
             Destroy(impact, 2);
             Destroy (gameObject);

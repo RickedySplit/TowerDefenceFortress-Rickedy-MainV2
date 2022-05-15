@@ -266,7 +266,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh20550
+  m_Name: pb_Mesh29678
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -517,7 +517,7 @@ RectTransform:
   m_Children:
   - {fileID: 1391618967}
   - {fileID: 825146548}
-  - {fileID: 618762223}
+  - {fileID: 8156247762932510697}
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1274,7 +1274,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh20772
+  m_Name: pb_Mesh29878
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1612,11 +1612,6 @@ PrefabInstance:
     - {fileID: 8156247761987995680, guid: f09473a531be9af45bbbe903790c25de, type: 3}
     - {fileID: 8156247762391100277, guid: f09473a531be9af45bbbe903790c25de, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f09473a531be9af45bbbe903790c25de, type: 3}
---- !u!224 &618762223 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 8156247762456485895, guid: f09473a531be9af45bbbe903790c25de, type: 3}
-  m_PrefabInstance: {fileID: 618762222}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &619064893
 GameObject:
   m_ObjectHideFlags: 0
@@ -2592,18 +2587,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Distance: 0
   Index: 0
---- !u!1 &994704338 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8156247762456485894, guid: f09473a531be9af45bbbe903790c25de, type: 3}
-  m_PrefabInstance: {fileID: 618762222}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &994704339
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 994704338}
+  m_GameObject: {fileID: 8156247762932510696}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a8a0ad31eb6235468077aa7211fa2d5, type: 3}
@@ -2617,7 +2607,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh20630
+  m_Name: pb_Mesh29748
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4323,7 +4313,7 @@ PrefabInstance:
     - target: {fileID: 2403422404413324958, guid: 1eb7b4eb0b77c554f9bdccee69faa922, type: 3}
       propertyPath: upgradePanel
       value: 
-      objectReference: {fileID: 994704338}
+      objectReference: {fileID: 8156247762932510696}
     - target: {fileID: 4232320359111900872, guid: 1eb7b4eb0b77c554f9bdccee69faa922, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -4392,7 +4382,7 @@ PrefabInstance:
     - target: {fileID: 2626789424719220645, guid: c641c59874c76024eb880ffb945bbf0f, type: 3}
       propertyPath: upgradePanel
       value: 
-      objectReference: {fileID: 994704338}
+      objectReference: {fileID: 8156247762932510696}
     - target: {fileID: 5442261480269041316, guid: c641c59874c76024eb880ffb945bbf0f, type: 3}
       propertyPath: m_Name
       value: TurretBase_TestV2
@@ -4454,10 +4444,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TurretSniper_TestV2
       objectReference: {fileID: 0}
-    - target: {fileID: 3921681590924543143, guid: 5e210cded2ce77c4b886d9da63c9255f, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
     - target: {fileID: 3921681590924543147, guid: 5e210cded2ce77c4b886d9da63c9255f, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -4505,7 +4491,7 @@ PrefabInstance:
     - target: {fileID: 6532109011268559978, guid: 5e210cded2ce77c4b886d9da63c9255f, type: 3}
       propertyPath: upgradePanel
       value: 
-      objectReference: {fileID: 994704338}
+      objectReference: {fileID: 8156247762932510696}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e210cded2ce77c4b886d9da63c9255f, type: 3}
 --- !u!1 &5092644926493743732
@@ -4649,7 +4635,7 @@ PrefabInstance:
     - target: {fileID: 7970434637823630744, guid: 63b159df0551bb44b845b5464d5c4771, type: 3}
       propertyPath: upgradePanel
       value: 
-      objectReference: {fileID: 994704338}
+      objectReference: {fileID: 8156247762932510696}
     - target: {fileID: 8194886829035377459, guid: 63b159df0551bb44b845b5464d5c4771, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -4700,6 +4686,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63b159df0551bb44b845b5464d5c4771, type: 3}
+--- !u!1 &8156247762932510696 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8156247762456485894, guid: f09473a531be9af45bbbe903790c25de, type: 3}
+  m_PrefabInstance: {fileID: 618762222}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &8156247762932510697 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8156247762456485895, guid: f09473a531be9af45bbbe903790c25de, type: 3}
+  m_PrefabInstance: {fileID: 618762222}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8580670913078330261
 PrefabInstance:
   m_ObjectHideFlags: 0

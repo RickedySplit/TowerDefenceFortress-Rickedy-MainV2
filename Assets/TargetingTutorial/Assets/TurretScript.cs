@@ -33,6 +33,12 @@ public class TurretScript : MonoBehaviour
 
     public GameObject muzzleFlash;
     public Transform MuzzleFlashPosition;
+    public ParticleSystem flamethrowerParticleEffect;
+    public bool isFlamethrower = false;
+
+    public float flamerParticleTimer;
+    public bool isShootingFire = false;
+
 
     private void Start()
     {
@@ -43,6 +49,19 @@ public class TurretScript : MonoBehaviour
 
     private void Update()
     {
+        if (flamerParticleTimer > 0)
+        {
+            flamerParticleTimer -= Time.deltaTime;
+            isShootingFire = true;
+            flamethrowerParticleEffect.Play();
+        }
+        if (flamerParticleTimer <= 0)
+        {
+            isShootingFire = false;
+            flamethrowerParticleEffect.Stop();
+        }
+
+
         if (Target)
         {
             Vector3 LookAtRot = new Vector3(Target.transform.position.x, transform.position.y, Target.transform.position.z);
@@ -63,28 +82,54 @@ public class TurretScript : MonoBehaviour
     {
         if(!alreadyAttacked)
         {
-            //New Shooting
-            //if (muzzleFlash != null) Instantiate(muzzleFlash, MuzzleFlashPosition.position, MuzzleFlashPosition.rotation);;
-            //Make Bullet Appear
-            GameObject projectileInstantiated = Instantiate(projectile, MuzzlePosition.position, MuzzlePosition.rotation);
-            projectileInstantiated.SetActive(true);
-            Rigidbody rb = projectileInstantiated.GetComponent<Rigidbody>();
+            if(isFlamethrower == false)
+            {
+                //New Shooting
 
-            rb.AddForce(transform.forward * ProjectileForwardSpeed, ForceMode.Impulse);
-            rb.AddForce(transform.up * ProjectileUpwardSpeed, ForceMode.Impulse);
+                if (muzzleFlash != null)
+                {
+                    GameObject muzzleFlashInstantiated = Instantiate(muzzleFlash, MuzzleFlashPosition.position, MuzzleFlashPosition.rotation);
+                    muzzleFlashInstantiated.SetActive(true);
+                }
 
-            //Destroy(muzzleFlash);
+                //Make Bullet Appear
+                GameObject projectileInstantiated = Instantiate(projectile, MuzzlePosition.position, MuzzlePosition.rotation);
+                projectileInstantiated.SetActive(true);
+                Rigidbody rb = projectileInstantiated.GetComponent<Rigidbody>();
 
-            //Set alreadyAttacked to be false, set attack delay and continue to look for enemies
-            alreadyAttacked = true;
-            Invoke(nameof(ResetAttack), timeBetweenAttacks);
-            LookForEnemies();
+                rb.AddForce(transform.forward * ProjectileForwardSpeed, ForceMode.Impulse);
+                rb.AddForce(transform.up * ProjectileUpwardSpeed, ForceMode.Impulse);
+
+                //Destroy(muzzleFlash);
+
+                //Set alreadyAttacked to be false, set attack delay and continue to look for enemies
+                alreadyAttacked = true;
+                Invoke(nameof(ResetAttack), timeBetweenAttacks);
+                LookForEnemies();
 
 
-            //Old Shooting
-            //Target.GetComponent<TowerDefenceAITest_V1>().TakeDamage(Damage);
-            //LookForEnemies();
-            //AttackDelay = AttackSpeed;
+                //Old Shooting
+                //Target.GetComponent<TowerDefenceAITest_V1>().TakeDamage(Damage);
+                //LookForEnemies();
+                //AttackDelay = AttackSpeed;
+            }
+            else if(isFlamethrower == true)
+            {
+                flamerParticleTimer = 0.15f;
+                GameObject projectileInstantiated = Instantiate(projectile, MuzzlePosition.position, MuzzlePosition.rotation);
+                projectileInstantiated.SetActive(true);
+                Rigidbody rb = projectileInstantiated.GetComponent<Rigidbody>();
+
+                rb.AddForce(transform.forward * ProjectileForwardSpeed, ForceMode.Impulse);
+                rb.AddForce(transform.up * ProjectileUpwardSpeed, ForceMode.Impulse);
+
+                //Destroy(muzzleFlash);
+
+                //Set alreadyAttacked to be false, set attack delay and continue to look for enemies (and disable flame particle)
+                alreadyAttacked = true;
+                Invoke(nameof(ResetAttack), timeBetweenAttacks);
+                LookForEnemies();
+            }
         }
         else if(alreadyAttacked)
         {

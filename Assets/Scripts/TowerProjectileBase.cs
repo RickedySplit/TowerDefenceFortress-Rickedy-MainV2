@@ -29,8 +29,13 @@ public class TowerProjectileBase : MonoBehaviour
     public bool ApplyBulletSlowdownOnExplosion = false;
     public bool ApplyBulletSlowdownOnHit = false;
 
+    public bool ApplyAfterburnOnExplosion = false;
+    public bool ApplyAfterburnOnHit = false;
+
+
     int collisions;
     PhysicMaterial physics_mat;
+    public bool isFlameProjectile = false;
 
 
     private void Update()
@@ -58,6 +63,10 @@ public class TowerProjectileBase : MonoBehaviour
                 if (ApplyBulletSlowdownOnExplosion == true)
                 {
                     enemies[i].GetComponent<TowerDefenceAITest_V1>().SlowDownViaBulletSlowdown();
+                }
+                if (ApplyAfterburnOnExplosion == true)
+                {
+                    enemies[i].GetComponent<TowerDefenceAITest_V1>().ApplyAfterburn();
                 }
                 //Get component of enemy and call Take Damage
                 enemies[i].GetComponent<TowerDefenceAITest_V1>().TakeDamage(explosionDamage);
@@ -97,6 +106,10 @@ public class TowerProjectileBase : MonoBehaviour
             {
                 other.GetComponent<TowerDefenceAITest_V1>().SlowDownViaBulletSlowdown();
             }
+            if(ApplyAfterburnOnHit == true)
+            {
+                other.GetComponent<TowerDefenceAITest_V1>().ApplyAfterburn();
+            }
             other.GetComponent<TowerDefenceAITest_V1>().TakeDamage(damage);
             //Debug.Log("Collided with Enemy");
             var impact = Instantiate (impactVFX, collision.contacts[0].point, Quaternion.identity) as GameObject;
@@ -104,6 +117,31 @@ public class TowerProjectileBase : MonoBehaviour
             Destroy (gameObject);
         }
     }
+
+//    private void OnTriggerEnter(Collision collision)
+//    {
+//        //Count up collisions
+//        //collisions++;
+//
+//        GameObject other = collision.gameObject;
+//
+//        {
+//            //collided = true;
+//            if(ApplyJarateOnHit == true)
+//            {
+//                other.GetComponent<TowerDefenceAITest_V1>().CoverInJarate();
+//            }
+//            if(ApplyBulletSlowdownOnHit == true)
+//            {
+//                other.GetComponent<TowerDefenceAITest_V1>().SlowDownViaBulletSlowdown();
+//            }
+//            other.GetComponent<TowerDefenceAITest_V1>().TakeDamage(damage);
+//            //Debug.Log("Collided with Enemy");
+//            //var impact = Instantiate (impactVFX, collision.contacts[0].point, Quaternion.identity) as GameObject;
+//            //Destroy(impact, 2);
+//            //Destroy (gameObject);
+//        }
+//    }
 
     private void OnDrawGizmosSelected()
     {

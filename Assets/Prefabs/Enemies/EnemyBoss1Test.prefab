@@ -313,6 +313,8 @@ MonoBehaviour:
   BulletSlowed: 0
   BulletSlowdownParticles: {fileID: 5642938775968325736}
   BulletSlowdownTimer: 0
+  playerEmptyObject: {fileID: 5180021552235963769, guid: 0fe28f79eb361804981049b5cca71531, type: 3}
+  moneyRewardOnDeath: 70
 --- !u!54 &1253301895398916079
 Rigidbody:
   m_ObjectHideFlags: 0

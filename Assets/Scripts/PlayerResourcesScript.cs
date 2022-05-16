@@ -61,6 +61,12 @@ public class PlayerResourcesScript : MonoBehaviour
     }
 
 
+    public void GivePlayerMoney(int moneyRewardOnDeath)
+    {
+        playerMoney += moneyRewardOnDeath;
+    }
+
+
     public void Start()
     {
 

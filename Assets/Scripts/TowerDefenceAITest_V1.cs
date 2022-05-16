@@ -39,6 +39,15 @@ public class TowerDefenceAITest_V1 : MonoBehaviour
     public ParticleSystem BulletSlowdownParticles;
     public float BulletSlowdownTimer;
 
+    public bool onFire = false;
+    public ParticleSystem AfterburnParticles;
+    public float AfterburnTimer;
+
+
+    public GameObject playerEmptyObject;
+    public int moneyRewardOnDeath;
+
+
 
     // Use this for initialization
     private void Start()
@@ -84,6 +93,23 @@ public class TowerDefenceAITest_V1 : MonoBehaviour
             currentMoveSpeed = MoveSpeed;
             BulletSlowed = false;
         }
+
+
+        if (AfterburnTimer > 0)
+        {
+            AfterburnTimer -= Time.deltaTime;
+        }
+
+        if (onFire == false)
+        {
+            AfterburnParticles.Stop();
+        }
+
+        if (JarateTimer == 0)
+        {
+            onFire = false;
+        }
+
 
 
         healthText.text = health.ToString();
@@ -138,6 +164,21 @@ public class TowerDefenceAITest_V1 : MonoBehaviour
         }
     }
 
+    public void ApplyAfterburn()
+    {
+        if (onFire == true)
+        {
+            AfterburnTimer = 5f;
+        }
+        else if (onFire == false)
+        {
+            AfterburnParticles.Play();
+            onFire = true;
+            AfterburnTimer = 5f;
+        }
+    }
+
+
     // Method that actually make Enemy walk
     private void Move()
     {
@@ -168,6 +209,7 @@ public class TowerDefenceAITest_V1 : MonoBehaviour
 
             if(health <= 0)
             {
+                playerEmptyObject.GetComponent<PlayerResourcesScript>().GivePlayerMoney(moneyRewardOnDeath);
                 Destroy(gameObject);
             }
         }
@@ -177,6 +219,7 @@ public class TowerDefenceAITest_V1 : MonoBehaviour
 
             if(health <= 0)
             {
+                playerEmptyObject.GetComponent<PlayerResourcesScript>().GivePlayerMoney(moneyRewardOnDeath);
                 Destroy(gameObject);
             }
         }   

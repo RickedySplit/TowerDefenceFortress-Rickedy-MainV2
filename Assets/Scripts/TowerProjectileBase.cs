@@ -97,6 +97,7 @@ public class TowerProjectileBase : MonoBehaviour
         }
 
         {
+            other.GetComponent<TowerDefenceAITest_V1>().TakeDamage(damage);
             //collided = true;
             if(ApplyJarateOnHit == true)
             {
@@ -110,7 +111,6 @@ public class TowerProjectileBase : MonoBehaviour
             {
                 other.GetComponent<TowerDefenceAITest_V1>().ApplyAfterburn();
             }
-            other.GetComponent<TowerDefenceAITest_V1>().TakeDamage(damage);
             //Debug.Log("Collided with Enemy");
             var impact = Instantiate (impactVFX, collision.contacts[0].point, Quaternion.identity) as GameObject;
             Destroy(impact, 2);

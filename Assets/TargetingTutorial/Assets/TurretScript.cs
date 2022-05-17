@@ -115,7 +115,7 @@ public class TurretScript : MonoBehaviour
             }
             else if(isFlamethrower == true)
             {
-                flamerParticleTimer = 0.15f;
+                flamerParticleTimer = 0.2f;
                 GameObject projectileInstantiated = Instantiate(projectile, MuzzlePosition.position, MuzzlePosition.rotation);
                 projectileInstantiated.SetActive(true);
                 Rigidbody rb = projectileInstantiated.GetComponent<Rigidbody>();

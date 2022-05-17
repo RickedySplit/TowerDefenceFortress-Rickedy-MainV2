@@ -103,6 +103,7 @@ public class TowerDefenceAITest_V1 : MonoBehaviour
         if (onFire == false)
         {
             AfterburnParticles.Stop();
+            StopCoroutine(burnEverySecond());
         }
 
         if (JarateTimer == 0)
@@ -173,8 +174,18 @@ public class TowerDefenceAITest_V1 : MonoBehaviour
         else if (onFire == false)
         {
             AfterburnParticles.Play();
+            StartCoroutine(burnEverySecond());
             onFire = true;
             AfterburnTimer = 5f;
+        }
+    }
+
+    IEnumerator burnEverySecond() 
+    {
+        while (true) 
+        {
+            TakeDamage(1f);
+            yield return new WaitForSeconds(.8f);
         }
     }
 
@@ -188,7 +199,7 @@ public class TowerDefenceAITest_V1 : MonoBehaviour
         {
             // Move Enemy from current waypoint to the next one
             // using MoveTowards method
-            transform.position = Vector2.MoveTowards(transform.position,
+            transform.position = Vector3.MoveTowards(transform.position,
                waypoints[waypointIndex].transform.position,
                currentMoveSpeed * Time.deltaTime);
 

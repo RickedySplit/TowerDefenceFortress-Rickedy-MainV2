@@ -223,7 +223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 6693718520997505556}
-  explosion: {fileID: 0}
+  explosion: {fileID: 539603816639001606, guid: f1a7a82a9c2cadb428530c8801cffe4c, type: 3}
   EnemyLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -239,6 +239,9 @@ MonoBehaviour:
   ApplyJarateOnHit: 0
   ApplyBulletSlowdownOnExplosion: 0
   ApplyBulletSlowdownOnHit: 0
+  ApplyAfterburnOnExplosion: 0
+  ApplyAfterburnOnHit: 0
+  isFlameProjectile: 0
 --- !u!65 &2082114484674986606
 BoxCollider:
   m_ObjectHideFlags: 0

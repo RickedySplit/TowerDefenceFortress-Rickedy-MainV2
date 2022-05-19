@@ -16,9 +16,15 @@ public class UpgradeButtonScript_V1 : MonoBehaviour
         TowerProjectileBase = gameObject.GetComponent<TowerProjectileBase>();
     }
 
-    public void selectSelf()
+    //public void selectSelf()
+    //{
+    //    upgradePanel.GetComponent<UpgradePanelScript>().SetUpgradeTarget(self, UsedProjectile);
+    //}
+
+    public void OnMouseUpAsButton()
     {
         upgradePanel.GetComponent<UpgradePanelScript>().SetUpgradeTarget(self, UsedProjectile);
 
     }
+
 }

@@ -10,6 +10,14 @@ public class PlayerResourcesScript : MonoBehaviour
     public int playerLives;
     public TMP_Text playerLivesText;
 
+    public GameObject ScoutTowerBlueprint;
+    public GameObject SoldierTowerBlueprint;
+    public GameObject PyroTowerBlueprint;
+    public GameObject HeavyTowerBlueprint;
+    public GameObject SniperTowerBlueprint;
+
+
+
     //Note, the emblembs used for the buttons (Which these Methods are used for, are found here: https://wiki.teamfortress.com/wiki/Category:Class_emblems)
 
     public void buyScoutTower()
@@ -17,6 +25,7 @@ public class PlayerResourcesScript : MonoBehaviour
         if (playerMoney >= 200)
         {
             playerMoney -= 200;
+            Instantiate(ScoutTowerBlueprint);
         }
         else
         {
@@ -29,6 +38,7 @@ public class PlayerResourcesScript : MonoBehaviour
         if (playerMoney >= 425)
         {
             playerMoney -= 425;
+            Instantiate(SoldierTowerBlueprint);
         }
         else
         {
@@ -41,10 +51,24 @@ public class PlayerResourcesScript : MonoBehaviour
         if (playerMoney >= 350)
         {
             playerMoney -= 350;
+            Instantiate(PyroTowerBlueprint);
         }
         else
         {
             Debug.Log("You're too poor to afford a Pyro Tower, Mmmph!");
+        }
+    }
+
+        public void buyHeavyTower()
+    {
+        if (playerMoney >= 750)
+        {
+            playerMoney -= 750;
+            Instantiate(HeavyTowerBlueprint);
+        }
+        else
+        {
+            Debug.Log("You're too poor to afford a Heavy Tower, Baby Man!");
         }
     }
 
@@ -53,10 +77,11 @@ public class PlayerResourcesScript : MonoBehaviour
         if (playerMoney >= 950)
         {
             playerMoney -= 950;
+            Instantiate(SniperTowerBlueprint);
         }
         else
         {
-            Debug.Log("You're too poor to afford a Pyro Tower, P1ss Off!");
+            Debug.Log("You're too poor to afford a Sniper Tower, P1ss Off!");
         }
     }
 

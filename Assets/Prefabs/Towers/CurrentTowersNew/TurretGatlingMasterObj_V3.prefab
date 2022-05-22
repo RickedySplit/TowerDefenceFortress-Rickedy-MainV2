@@ -1611,7 +1611,7 @@ MonoBehaviour:
   Damage: 1
   ProjectileForwardSpeed: 384
   ProjectileUpwardSpeed: 0
-  muzzleFlash: {fileID: 539603816639001606, guid: 43359358d462f494e9dc12c6508d7bde, type: 3}
+  muzzleFlash: {fileID: 539603816639001606, guid: 1c4328e0a72f97d4aae9e93d06ba8dfe, type: 3}
   MuzzleFlashPosition: {fileID: 8603005195717267510}
   flamethrowerParticleEffect: {fileID: 6392939868387149595, guid: f8e76b8bc414b884f930019fac34e912, type: 3}
   isFlamethrower: 0
@@ -2227,6 +2227,7 @@ GameObject:
   - component: {fileID: 8603005196968025681}
   - component: {fileID: 8603005196968025680}
   - component: {fileID: 8603005196968025687}
+  - component: {fileID: 2244686204662447517}
   m_Layer: 9
   m_Name: TurretGatling_TestV3
   m_TagString: Untagged
@@ -2312,8 +2313,23 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.8, y: 4, z: 1.25}
-  m_Center: {x: 0, y: 1.5, z: 0.2}
+  m_Size: {x: 1, y: 4, z: 1.3}
+  m_Center: {x: 0, y: 1.5, z: 0.15}
+--- !u!114 &2244686204662447517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8603005196968025686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67aaf672010b37741ba599d50fb37982, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradePanel: {fileID: 0}
+  self: {fileID: 8603005195547690009}
+  UsedProjectile: {fileID: 8563487514945156500}
 --- !u!1 &8603005197187254528
 GameObject:
   m_ObjectHideFlags: 0
@@ -2332,7 +2348,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8603005197187254529
 RectTransform:
   m_ObjectHideFlags: 0

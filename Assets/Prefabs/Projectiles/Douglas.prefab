@@ -29,13 +29,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6494584410519970398}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6494584410519970394
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -239,6 +239,9 @@ MonoBehaviour:
   ApplyJarateOnHit: 0
   ApplyBulletSlowdownOnExplosion: 0
   ApplyBulletSlowdownOnHit: 0
+  ApplyAfterburnOnExplosion: 0
+  ApplyAfterburnOnHit: 0
+  isFlameProjectile: 0
 --- !u!65 &1882666876411628069
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -25,9 +25,11 @@ public class TowerDefenceAITest_V1 : MonoBehaviour
 
     int IndexToTravelTo = 0;
     GlobalData GameData;
+    public float maxHealth = 10f;
     public float health = 10f;
     public float DistanceToNode;
     public float TrueDistance = 0f;
+    public Slider healthBarSlider;
     public TextMeshProUGUI healthText;
 
 
@@ -50,8 +52,13 @@ public class TowerDefenceAITest_V1 : MonoBehaviour
 
 
     // Use this for initialization
+    private void Awake()
+    {
+        playerEmptyObject = GameObject.Find("PlayerEmptyObject");
+    }
     private void Start()
     {
+        health = maxHealth;
         slowedMoveSpeed = MoveSpeed * 0.66f;
         GameData = FindObjectOfType<GlobalData>();
         // Set position of Enemy as position of the first waypoint
@@ -61,6 +68,9 @@ public class TowerDefenceAITest_V1 : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        healthBarSlider.maxValue = maxHealth;
+        healthBarSlider.value = health;
+
         if (JarateTimer > 0)
         {
             JarateTimer -= Time.deltaTime;
@@ -139,13 +149,13 @@ public class TowerDefenceAITest_V1 : MonoBehaviour
     {
         if (jarated == true)
         {
-            JarateTimer = 5f;
+            JarateTimer = 3f;
         }
         else if (jarated == false)
         {
             JarateDropletParticles.Play();
             jarated = true;
-            JarateTimer = 5f;
+            JarateTimer = 3f;
         }
     }
 
@@ -169,14 +179,14 @@ public class TowerDefenceAITest_V1 : MonoBehaviour
     {
         if (onFire == true)
         {
-            AfterburnTimer = 5f;
+            AfterburnTimer = 2.5f;
         }
         else if (onFire == false)
         {
             AfterburnParticles.Play();
             StartCoroutine(burnEverySecond());
             onFire = true;
-            AfterburnTimer = 5f;
+            AfterburnTimer = 2.5f;
         }
     }
 
@@ -184,8 +194,8 @@ public class TowerDefenceAITest_V1 : MonoBehaviour
     {
         while (true) 
         {
-            TakeDamage(1f);
-            yield return new WaitForSeconds(.8f);
+            TakeDamage(.35f);
+            yield return new WaitForSeconds(1f);
         }
     }
 

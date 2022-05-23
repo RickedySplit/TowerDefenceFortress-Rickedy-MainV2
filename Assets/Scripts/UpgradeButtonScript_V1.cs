@@ -12,6 +12,7 @@ public class UpgradeButtonScript_V1 : MonoBehaviour
 
     void Awake()
     {
+        upgradePanel = GameObject.Find("UpgradeMenu");
         TurretScript = gameObject.GetComponent<TurretScript>();
         TowerProjectileBase = gameObject.GetComponent<TowerProjectileBase>();
     }

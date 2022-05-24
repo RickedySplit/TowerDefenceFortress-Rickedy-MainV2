@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fbfe28967781e224187a41a8e73d2ba5, type: 2}
+  - {fileID: 2100000, guid: 8d9c6b39b4ab7e64f8f8bd2495ed42ca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -237,6 +237,11 @@ MonoBehaviour:
   impactVFX: {fileID: 8885426855382600526, guid: 754751016c383834eb07c227c51fb1f9, type: 3}
   ApplyJarateOnExplosion: 0
   ApplyJarateOnHit: 0
+  ApplyBulletSlowdownOnExplosion: 0
+  ApplyBulletSlowdownOnHit: 0
+  ApplyAfterburnOnExplosion: 0
+  ApplyAfterburnOnHit: 0
+  isFlameProjectile: 0
 --- !u!65 &1882666876411628069
 BoxCollider:
   m_ObjectHideFlags: 0

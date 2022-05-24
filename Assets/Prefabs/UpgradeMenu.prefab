@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8156247761987995695}
   - component: {fileID: 8156247761987995694}
   - component: {fileID: 8156247761987995681}
-  - component: {fileID: 8156247761987995680}
   m_Layer: 5
   m_Name: Fire Rate Button
   m_TagString: Untagged
@@ -134,9 +133,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 8156247761987995680}
-        m_TargetAssemblyTypeName: TowerButton_Script, Assembly-CSharp
-        m_MethodName: SpawnTowerBluePrint
+      - m_Target: {fileID: 994704339}
+        m_TargetAssemblyTypeName: UpgradePanelScript, Assembly-CSharp
+        m_MethodName: UpgradeFireRate
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -146,19 +145,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8156247761987995680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8156247761987995682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ece0496f508aac94abc825b7f10b49ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TowerBlueprint: {fileID: 7739499459830532894, guid: 93b13261ea4886a41992133f5b54192b, type: 3}
 --- !u!1 &8156247762391100279
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,7 +157,6 @@ GameObject:
   - component: {fileID: 8156247762391100272}
   - component: {fileID: 8156247762391100275}
   - component: {fileID: 8156247762391100274}
-  - component: {fileID: 8156247762391100277}
   m_Layer: 5
   m_Name: Damage Button
   m_TagString: Untagged
@@ -293,9 +278,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 8156247762391100277}
-        m_TargetAssemblyTypeName: TowerButton_Script, Assembly-CSharp
-        m_MethodName: SpawnTowerBluePrint
+      - m_Target: {fileID: 994704339}
+        m_TargetAssemblyTypeName: UpgradePanelScript, Assembly-CSharp
+        m_MethodName: UpgradeDamage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -305,19 +290,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8156247762391100277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8156247762391100279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ece0496f508aac94abc825b7f10b49ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TowerBlueprint: {fileID: 1609711025440200542, guid: 392d4434852beeb4883bab5caf0c8930, type: 3}
 --- !u!1 &8156247762404380505
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,6 +553,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8156247762456485895}
+  - component: {fileID: 994704339}
   m_Layer: 5
   m_Name: UpgradeMenu
   m_TagString: Untagged
@@ -595,7 +568,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8156247762456485894}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -608,6 +581,20 @@ RectTransform:
   m_AnchoredPosition: {x: 148, y: 129}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &994704339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8156247762456485894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a8a0ad31eb6235468077aa7211fa2d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coolSelf: {fileID: 0}
+  coolUsedProjectile: {fileID: 0}
 --- !u!1 &8156247762541046101
 GameObject:
   m_ObjectHideFlags: 0
@@ -756,7 +743,6 @@ GameObject:
   - component: {fileID: 8156247762695566225}
   - component: {fileID: 8156247762695566224}
   - component: {fileID: 8156247762695566227}
-  - component: {fileID: 8156247762695566226}
   m_Layer: 5
   m_Name: Range Button
   m_TagString: Untagged
@@ -878,9 +864,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 8156247762695566226}
-        m_TargetAssemblyTypeName: TowerButton_Script, Assembly-CSharp
-        m_MethodName: SpawnTowerBluePrint
+      - m_Target: {fileID: 994704339}
+        m_TargetAssemblyTypeName: UpgradePanelScript, Assembly-CSharp
+        m_MethodName: UpgradeRange
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -890,19 +876,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8156247762695566226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8156247762695566228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ece0496f508aac94abc825b7f10b49ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TowerBlueprint: {fileID: 99216511690485904, guid: 7930aba2d21a63c41bfc9a0dc0d5c72d, type: 3}
 --- !u!1 &8156247762937226308
 GameObject:
   m_ObjectHideFlags: 0

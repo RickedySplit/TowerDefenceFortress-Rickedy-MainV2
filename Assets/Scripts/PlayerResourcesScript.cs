@@ -9,12 +9,21 @@ public class PlayerResourcesScript : MonoBehaviour
     public TMP_Text playerMoneyText;
     public int playerLives;
     public TMP_Text playerLivesText;
+    public GameObject currentlySelectedTower;
 
     public GameObject ScoutTowerBlueprint;
     public GameObject SoldierTowerBlueprint;
     public GameObject PyroTowerBlueprint;
     public GameObject HeavyTowerBlueprint;
     public GameObject SniperTowerBlueprint;
+
+
+    public void SetUpgradeTarget(GameObject self)
+    {
+        currentlySelectedTower = self;
+        Debug.Log(currentlySelectedTower +" Selected");
+    }
+
 
 
 

@@ -22,6 +22,7 @@ public class TurretScript : MonoBehaviour
 
     public LayerMask EnemyMask;
     public float Range = 25f;
+    public float sphereVisionBubbleSize = 25;
     public GameObject Target;
 
     public float AttackSpeed = 1f;
@@ -38,6 +39,7 @@ public class TurretScript : MonoBehaviour
 
     public float flamerParticleTimer;
     public bool isShootingFire = false;
+    public GameObject visionSphere;
 
 
     private void Start()
@@ -49,6 +51,8 @@ public class TurretScript : MonoBehaviour
 
     private void Update()
     {
+        visionSphere.gameObject.transform.localScale = new Vector3(sphereVisionBubbleSize, sphereVisionBubbleSize, sphereVisionBubbleSize);
+        sphereVisionBubbleSize = (Range * 2f);
         if (flamerParticleTimer > 0)
         {
             flamerParticleTimer -= Time.deltaTime;

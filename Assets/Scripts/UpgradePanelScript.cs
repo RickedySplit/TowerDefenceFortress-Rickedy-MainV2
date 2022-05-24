@@ -9,14 +9,14 @@ public class UpgradePanelScript : MonoBehaviour
     public GameObject coolSelf;
     public GameObject coolUsedProjectile;
 
-    public void SetUpgradeTarget(GameObject self, GameObject UsedProjectile)
-    {
-        coolUsedProjectile = UsedProjectile;
-        coolSelf = self;
-        Debug.Log("Gamering");
-        TowerProjectileBase = coolUsedProjectile.GetComponent<TowerProjectileBase>();
-        TurretScript = coolSelf.GetComponent<TurretScript>();
-    }
+    //public void SetUpgradeTarget(GameObject self, GameObject UsedProjectile)
+    //{
+    //    coolUsedProjectile = UsedProjectile;
+    //    coolSelf = self;
+    //    Debug.Log("Gamering");
+    //    TowerProjectileBase = coolUsedProjectile.GetComponent<TowerProjectileBase>();
+    //    TurretScript = coolSelf.GetComponent<TurretScript>();
+    //}
 
     public void UpgradeFireRate()
     {

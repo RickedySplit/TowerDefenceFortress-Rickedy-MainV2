@@ -58,7 +58,7 @@ public class TowerProjectileBase : MonoBehaviour
         {
                 if (ApplyJarateOnExplosion == true)
                 {
-                    enemies[i].GetComponent<TowerDefenceAITest_V1>().CoverInJarate();   
+                    enemies[i].GetComponent<TowerDefenceAITest_V1>().CoverInJarate();
                 }
                 if (ApplyBulletSlowdownOnExplosion == true)
                 {

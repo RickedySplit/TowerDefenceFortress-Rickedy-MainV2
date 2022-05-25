@@ -9,6 +9,12 @@ public class UpgradePanelScript : MonoBehaviour
     public GameObject coolSelf;
     public GameObject coolUsedProjectile;
 
+    public void Start()
+    {
+        TowerProjectileBase = coolUsedProjectile.GetComponent<TowerProjectileBase>();
+        TurretScript = coolSelf.GetComponent<TurretScript>();
+    }
+
     //public void SetUpgradeTarget(GameObject self, GameObject UsedProjectile)
     //{
     //    coolUsedProjectile = UsedProjectile;
@@ -35,12 +41,12 @@ public class UpgradePanelScript : MonoBehaviour
     public void UpgradeRange()
     {
         {
-            if(TurretScript.Range < 30f)
+            if(TurretScript.Range < 24f)
             {
-                TurretScript.Range += 1f;
+                TurretScript.Range += 1.5f;
                 Debug.Log("Range has been upgraded");
             }
-            else if(TurretScript.Range >= 30f)
+            else if(TurretScript.Range >= 24f)
             {
                 Debug.Log("Can't upgrade Range Further");
             }

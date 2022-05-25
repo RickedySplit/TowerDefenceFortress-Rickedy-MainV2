@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3057787334617073508}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 1390186676458945788}
   - component: {fileID: 3092087089475691343}
   - component: {fileID: 193836487545818868}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 7998583047243389861}
   - component: {fileID: 3923412674903559494}
   - component: {fileID: 29752138521143986}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -257,7 +257,7 @@ GameObject:
   - component: {fileID: 5942092134524331527}
   - component: {fileID: 3937651608729350541}
   - component: {fileID: 7923223318258136326}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -616,7 +616,7 @@ GameObject:
   - component: {fileID: 7543740793431218973}
   - component: {fileID: 3439794698703176272}
   - component: {fileID: 5919321004994122237}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -690,7 +690,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3340085738183919004}
   - component: {fileID: 1264408379334524917}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -792,6 +792,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.y
       value: -0
       objectReference: {fileID: 0}
+    - target: {fileID: 2775420375611498000, guid: 274d39752fc3a634aa70f4c9589c4ebe, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2775420375611498003, guid: 274d39752fc3a634aa70f4c9589c4ebe, type: 3}
       propertyPath: InitialModule.maxNumParticles
       value: 6
@@ -880,12 +884,20 @@ PrefabInstance:
       value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 6392939868387149595, guid: f8e76b8bc414b884f930019fac34e912, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 6392939868387149595, guid: f8e76b8bc414b884f930019fac34e912, type: 3}
       propertyPath: InitialModule.startLifetime.minScalar
-      value: 0.8
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 6392939868387149598, guid: f8e76b8bc414b884f930019fac34e912, type: 3}
       propertyPath: m_Name
       value: vfx_V2_FireMuzzleFlash
+      objectReference: {fileID: 0}
+    - target: {fileID: 6392939868387149598, guid: f8e76b8bc414b884f930019fac34e912, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8e76b8bc414b884f930019fac34e912, type: 3}
@@ -960,6 +972,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9123846633951058356, guid: 24e9a2f500355c242b83736134bb6cf1, type: 3}
       propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9123846633951058357, guid: 24e9a2f500355c242b83736134bb6cf1, type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9123846633951058358, guid: 24e9a2f500355c242b83736134bb6cf1, type: 3}

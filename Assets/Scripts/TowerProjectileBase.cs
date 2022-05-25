@@ -92,11 +92,6 @@ public class TowerProjectileBase : MonoBehaviour
         GameObject other = collision.gameObject;
         if (collision.collider.CompareTag("EnemyTag") && !explodeOnTouch)
         {
-            var impact = Instantiate (impactVFX, collision.contacts[0].point, Quaternion.identity) as GameObject;
-            Destroy(impact, 2);
-        }
-
-        {
             other.GetComponent<TowerDefenceAITest_V1>().TakeDamage(damage);
             //collided = true;
             if(ApplyJarateOnHit == true)

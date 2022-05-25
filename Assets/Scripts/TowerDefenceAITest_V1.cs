@@ -149,13 +149,13 @@ public class TowerDefenceAITest_V1 : MonoBehaviour
     {
         if (jarated == true)
         {
-            JarateTimer = 3f;
+            JarateTimer = 2.5f;
         }
         else if (jarated == false)
         {
             JarateDropletParticles.Play();
             jarated = true;
-            JarateTimer = 3f;
+            JarateTimer = 2.5f;
         }
     }
 
@@ -164,14 +164,14 @@ public class TowerDefenceAITest_V1 : MonoBehaviour
         if (BulletSlowed == true)
         {
             currentMoveSpeed = slowedMoveSpeed;
-            BulletSlowdownTimer = 2f;
+            BulletSlowdownTimer = 2.5f;
         }
         else if (BulletSlowed == false)
         {
             currentMoveSpeed = slowedMoveSpeed;
             BulletSlowdownParticles.Play();
             BulletSlowed = true;
-            BulletSlowdownTimer = 2f;
+            BulletSlowdownTimer = 2.5f;
         }
     }
 
@@ -179,14 +179,14 @@ public class TowerDefenceAITest_V1 : MonoBehaviour
     {
         if (onFire == true)
         {
-            AfterburnTimer = 2.5f;
+            AfterburnTimer = 4f;
         }
         else if (onFire == false)
         {
             AfterburnParticles.Play();
             StartCoroutine(burnEverySecond());
             onFire = true;
-            AfterburnTimer = 2.5f;
+            AfterburnTimer = 4f;
         }
     }
 

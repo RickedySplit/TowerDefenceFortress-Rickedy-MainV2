@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4291408408515174820}
   - component: {fileID: 6350884405168077106}
   - component: {fileID: 1833327857806818738}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Eye2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -469,7 +469,7 @@ GameObject:
   - component: {fileID: 6544182250435858269}
   - component: {fileID: 3725133258141050643}
   - component: {fileID: 7395644212627767060}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -752,7 +752,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8112618346450949421}
   - component: {fileID: 7822524224556080061}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -936,7 +936,7 @@ GameObject:
   - component: {fileID: 148631339894698537}
   - component: {fileID: 1188805583682863504}
   - component: {fileID: 4080849417351840619}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Eye1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1034,7 +1034,7 @@ GameObject:
   - component: {fileID: 4576418593524652536}
   - component: {fileID: 842682451116743593}
   - component: {fileID: 6291512683535133243}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1107,7 +1107,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6856412912457462444}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1145,7 +1145,7 @@ GameObject:
   - component: {fileID: 5366161531789589819}
   - component: {fileID: 8348491470251680392}
   - component: {fileID: 6593873846608219955}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1279,7 +1279,7 @@ GameObject:
   - component: {fileID: 2192364146079823760}
   - component: {fileID: 4683044891783672499}
   - component: {fileID: 1247954838555200157}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1355,7 +1355,7 @@ GameObject:
   - component: {fileID: 811788408283785152}
   - component: {fileID: 8041134628518572106}
   - component: {fileID: 3802851939455202497}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1509,19 +1509,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6392939868387149595, guid: f8e76b8bc414b884f930019fac34e912, type: 3}
       propertyPath: ShapeModule.type
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6392939868387149595, guid: f8e76b8bc414b884f930019fac34e912, type: 3}
       propertyPath: ShapeModule.m_Scale.x
-      value: 3.5
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 6392939868387149595, guid: f8e76b8bc414b884f930019fac34e912, type: 3}
       propertyPath: ShapeModule.m_Scale.y
-      value: 3.5
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 6392939868387149595, guid: f8e76b8bc414b884f930019fac34e912, type: 3}
       propertyPath: ShapeModule.m_Scale.z
-      value: 4
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 6392939868387149595, guid: f8e76b8bc414b884f930019fac34e912, type: 3}
       propertyPath: CollisionModule.enabled
@@ -1541,11 +1541,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6392939868387149595, guid: f8e76b8bc414b884f930019fac34e912, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 1
+      value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: 6392939868387149595, guid: f8e76b8bc414b884f930019fac34e912, type: 3}
       propertyPath: InitialModule.startLifetime.minScalar
-      value: 0.9
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 6392939868387149595, guid: f8e76b8bc414b884f930019fac34e912, type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
@@ -1554,6 +1554,10 @@ PrefabInstance:
     - target: {fileID: 6392939868387149598, guid: f8e76b8bc414b884f930019fac34e912, type: 3}
       propertyPath: m_Name
       value: vfx_V2_FireMuzzleFlash
+      objectReference: {fileID: 0}
+    - target: {fileID: 6392939868387149598, guid: f8e76b8bc414b884f930019fac34e912, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8e76b8bc414b884f930019fac34e912, type: 3}

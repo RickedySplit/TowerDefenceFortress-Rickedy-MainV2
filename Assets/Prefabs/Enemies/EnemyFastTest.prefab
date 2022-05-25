@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7634393287108552825}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -307,7 +307,7 @@ GameObject:
   - component: {fileID: 6369062434001390115}
   - component: {fileID: 956611520533023849}
   - component: {fileID: 5651514444387556493}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -381,7 +381,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2393335008866859846}
   - component: {fileID: 7236486497108763004}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -520,7 +520,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1293273672601567798}
   - component: {fileID: 2001128164995253362}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -611,7 +611,7 @@ GameObject:
   - component: {fileID: 333265438861162065}
   - component: {fileID: 6938968613114225115}
   - component: {fileID: 4259705786148775248}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -711,7 +711,7 @@ GameObject:
   - component: {fileID: 5018027154917305514}
   - component: {fileID: 8935210542063809305}
   - component: {fileID: 6078125794199166626}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -845,7 +845,7 @@ GameObject:
   - component: {fileID: 4704057435191147424}
   - component: {fileID: 8221355328906589846}
   - component: {fileID: 8047741881977697204}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -964,6 +964,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2775420375611498000, guid: 274d39752fc3a634aa70f4c9589c4ebe, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2775420375611498003, guid: 274d39752fc3a634aa70f4c9589c4ebe, type: 3}
       propertyPath: InitialModule.maxNumParticles
       value: 6
@@ -997,7 +1001,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6392939868387149593, guid: f8e76b8bc414b884f930019fac34e912, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6392939868387149593, guid: f8e76b8bc414b884f930019fac34e912, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1051,9 +1055,21 @@ PrefabInstance:
       propertyPath: InitialModule.startSize.minScalar
       value: 0.75
       objectReference: {fileID: 0}
+    - target: {fileID: 6392939868387149595, guid: f8e76b8bc414b884f930019fac34e912, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6392939868387149595, guid: f8e76b8bc414b884f930019fac34e912, type: 3}
+      propertyPath: InitialModule.startLifetime.minScalar
+      value: 0.65
+      objectReference: {fileID: 0}
     - target: {fileID: 6392939868387149598, guid: f8e76b8bc414b884f930019fac34e912, type: 3}
       propertyPath: m_Name
       value: vfx_V2_FireMuzzleFlash
+      objectReference: {fileID: 0}
+    - target: {fileID: 6392939868387149598, guid: f8e76b8bc414b884f930019fac34e912, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8e76b8bc414b884f930019fac34e912, type: 3}
@@ -1128,6 +1144,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9123846633951058356, guid: 24e9a2f500355c242b83736134bb6cf1, type: 3}
       propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9123846633951058357, guid: 24e9a2f500355c242b83736134bb6cf1, type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9123846633951058358, guid: 24e9a2f500355c242b83736134bb6cf1, type: 3}

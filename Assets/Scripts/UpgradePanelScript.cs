@@ -11,6 +11,9 @@ public class UpgradePanelScript : MonoBehaviour
     private PlayerResourcesScript PlayerResourcesScript;
     public GameObject playerResourcesObj;
 
+    public GameObject normalCosmeticHead;
+    public GameObject upgrade1CosmeticHead;
+
     public int fireRateUpgradeCost = 9;
     public int currentFireRateUpgradeAmount = 0;
     public int maxFireRateUpgradeAmount = 3;
@@ -23,16 +26,30 @@ public class UpgradePanelScript : MonoBehaviour
     public int currentDamageUpgradeAmount = 0;
     public int maxDamageUpgradeAmount = 3;
 
+    public bool alreadyHasWeaponUpgrade = false;
+
     public int directHitUpgradeCost = 120;
-    public bool hasDirectHitUpgrade = false;
+    //public bool hasDirectHitUpgrade = false;
     public bool canHaveDirectHit = false;
 
     public int sydneySleeperUpgradeCost = 120;
-    public bool hasSydneySleeperUpgrade = false;
+    //public bool hasSydneySleeperUpgrade = false;
     public bool canHaveSydneySleeper = false;
+
+    public int forceANatureUpgradeCost = 120;
+    //public bool hasForceANatureUpgrade = false;
+    public bool canHaveForceANature = false;
 
 
     public void Start()
+    {
+        playerResourcesObj = GameObject.Find("PlayerEmptyObject");
+        PlayerResourcesScript = playerResourcesObj.GetComponent<PlayerResourcesScript>();
+        TowerProjectileBase = coolUsedProjectile.GetComponent<TowerProjectileBase>();
+        TurretScript = coolSelf.GetComponent<TurretScript>();
+    }
+
+    public void Awake()
     {
         playerResourcesObj = GameObject.Find("PlayerEmptyObject");
         PlayerResourcesScript = playerResourcesObj.GetComponent<PlayerResourcesScript>();
@@ -124,7 +141,7 @@ public class UpgradePanelScript : MonoBehaviour
     public void DirectHitUpgrade()
     {
         {
-            if((hasDirectHitUpgrade == false) && (canHaveDirectHit = true))
+            if((alreadyHasWeaponUpgrade == false) && (canHaveDirectHit == true))
             {
                 PlayerResourcesScript.playerMoney -= directHitUpgradeCost;
                 TowerProjectileBase.damage += 14;
@@ -132,12 +149,16 @@ public class UpgradePanelScript : MonoBehaviour
                 TowerProjectileBase.explosionRange -= 3f;
                 TowerProjectileBase.maxLifetime += 2f;
                 TurretScript.ProjectileForwardSpeed *= 2;
+
                 Debug.Log("Direct Hit Acquired!");
-                hasDirectHitUpgrade = true;
+                alreadyHasWeaponUpgrade = true;
+
+                normalCosmeticHead.SetActive(false);
+                upgrade1CosmeticHead.SetActive(true);
             }
-            else if(hasDirectHitUpgrade == true)
+            else if(alreadyHasWeaponUpgrade == true)
             {
-                Debug.Log("You Already have the Direct Hit!");
+                Debug.Log("You Already have a Weapon!");
             }
             else if(PlayerResourcesScript.playerMoney >= directHitUpgradeCost)
             {
@@ -150,10 +171,10 @@ public class UpgradePanelScript : MonoBehaviour
         }
     }
 
-        public void SydneySleeperUpgrade()
+    public void SydneySleeperUpgrade()
     {
         {
-            if((hasSydneySleeperUpgrade == false) && (canHaveSydneySleeper = true))
+            if((alreadyHasWeaponUpgrade == false) && (canHaveSydneySleeper == true))
             {
                 PlayerResourcesScript.playerMoney -= sydneySleeperUpgradeCost;
                 TowerProjectileBase.damage = 1;
@@ -161,12 +182,16 @@ public class UpgradePanelScript : MonoBehaviour
                 TowerProjectileBase.ApplyJarateOnHit = true;
                 TowerProjectileBase.ApplyJarateOnExplosion = true;
                 TurretScript.timeBetweenAttacks = 2.25f;
+
                 Debug.Log("Sydney Sleeper Acquired!");
-                hasSydneySleeperUpgrade = true;
+                alreadyHasWeaponUpgrade = true;
+
+                normalCosmeticHead.SetActive(false);
+                upgrade1CosmeticHead.SetActive(true);
             }
-            else if(hasSydneySleeperUpgrade == true)
+            else if(alreadyHasWeaponUpgrade == true)
             {
-                Debug.Log("You Already have the Sydney Sleeper!");
+                Debug.Log("You Already have a Weapon!");
             }
             else if(PlayerResourcesScript.playerMoney >= sydneySleeperUpgradeCost)
             {
@@ -175,6 +200,37 @@ public class UpgradePanelScript : MonoBehaviour
             else if(canHaveSydneySleeper == false)
             {
                 Debug.Log("Cannot give Sydney Sleeper to this Tower Type!");
+            }
+        }
+    }
+
+    public void ForceANatureUpgrade()
+    {
+        {
+            if ((alreadyHasWeaponUpgrade == false) && (canHaveForceANature == true))
+            {
+                PlayerResourcesScript.playerMoney -= forceANatureUpgradeCost;
+                TowerProjectileBase.damage *= 2.5f;
+                TurretScript.Range *= 0.8f;
+                TurretScript.timeBetweenAttacks += 1f;
+
+                Debug.Log("Force-A-Nature Acquired!");
+                alreadyHasWeaponUpgrade = true;
+
+                normalCosmeticHead.SetActive(false);
+                upgrade1CosmeticHead.SetActive(true);
+            }
+            else if (alreadyHasWeaponUpgrade == true)
+            {
+                Debug.Log("You Already have a Weapon!");
+            }
+            else if (PlayerResourcesScript.playerMoney >= forceANatureUpgradeCost)
+            {
+                Debug.Log("Can't afford the Force-A-Nature!");
+            }
+            else if (canHaveForceANature == false)
+            {
+                Debug.Log("Cannot give Force-A-Nature to this Tower Type!");
             }
         }
     }

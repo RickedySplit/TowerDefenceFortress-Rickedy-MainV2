@@ -13,6 +13,7 @@ public class UpgradePanelScript : MonoBehaviour
 
     public GameObject normalCosmeticHead;
     public GameObject upgrade1CosmeticHead;
+    public GameObject upgrade2CosmeticHead;
 
     public int fireRateUpgradeCost = 9;
     public int currentFireRateUpgradeAmount = 0;
@@ -37,8 +38,13 @@ public class UpgradePanelScript : MonoBehaviour
     public bool canHaveSydneySleeper = false;
 
     public int forceANatureUpgradeCost = 120;
-    //public bool hasForceANatureUpgrade = false;
     public bool canHaveForceANature = false;
+
+    public int nataschaUpgradeCost = 120;
+    public bool canHaveNatascha = false;
+
+    public int tomislavUpgradeCost = 120;
+    public bool canHaveTomislav = false;
 
 
     public void Start()
@@ -182,6 +188,7 @@ public class UpgradePanelScript : MonoBehaviour
                 TowerProjectileBase.ApplyJarateOnHit = true;
                 TowerProjectileBase.ApplyJarateOnExplosion = true;
                 TurretScript.timeBetweenAttacks = 2.25f;
+                TurretScript.Range *= 0.5f;
 
                 Debug.Log("Sydney Sleeper Acquired!");
                 alreadyHasWeaponUpgrade = true;
@@ -210,7 +217,7 @@ public class UpgradePanelScript : MonoBehaviour
             if ((alreadyHasWeaponUpgrade == false) && (canHaveForceANature == true))
             {
                 PlayerResourcesScript.playerMoney -= forceANatureUpgradeCost;
-                TowerProjectileBase.damage *= 2.5f;
+                TowerProjectileBase.damage *= 4.5f;
                 TurretScript.Range *= 0.8f;
                 TurretScript.timeBetweenAttacks += 1f;
 
@@ -231,6 +238,68 @@ public class UpgradePanelScript : MonoBehaviour
             else if (canHaveForceANature == false)
             {
                 Debug.Log("Cannot give Force-A-Nature to this Tower Type!");
+            }
+        }
+    }
+
+    public void NataschaUpgrade()
+    {
+        {
+            if ((alreadyHasWeaponUpgrade == false) && (canHaveNatascha == true))
+            {
+                PlayerResourcesScript.playerMoney -= nataschaUpgradeCost;
+                TowerProjectileBase.damage *= 0.65f;
+                TurretScript.Range *= 0.85f;
+                TurretScript.timeBetweenAttacks *= 1.4f;
+                TowerProjectileBase.ApplyBulletSlowdownOnHit = true;
+
+                Debug.Log("Natascha Acquired!");
+                alreadyHasWeaponUpgrade = true;
+
+                normalCosmeticHead.SetActive(false);
+                upgrade1CosmeticHead.SetActive(true);
+            }
+            else if (alreadyHasWeaponUpgrade == true)
+            {
+                Debug.Log("You Already have a Weapon!");
+            }
+            else if (PlayerResourcesScript.playerMoney >= nataschaUpgradeCost)
+            {
+                Debug.Log("Can't afford the Natascha!");
+            }
+            else if (canHaveNatascha == false)
+            {
+                Debug.Log("Cannot give Natascha to this Tower Type!");
+            }
+        }
+    }
+
+    public void TomislavUpgrade()
+    {
+        {
+            if ((alreadyHasWeaponUpgrade == false) && (canHaveTomislav == true))
+            {
+                PlayerResourcesScript.playerMoney -= tomislavUpgradeCost;
+                TurretScript.Range *= 1.75f;
+                TurretScript.timeBetweenAttacks *= 2f;
+
+                Debug.Log("Tomislav Acquired!");
+                alreadyHasWeaponUpgrade = true;
+
+                normalCosmeticHead.SetActive(false);
+                upgrade2CosmeticHead.SetActive(true);
+            }
+            else if (alreadyHasWeaponUpgrade == true)
+            {
+                Debug.Log("You Already have a Weapon!");
+            }
+            else if (PlayerResourcesScript.playerMoney >= tomislavUpgradeCost)
+            {
+                Debug.Log("Can't afford the Tomislav!");
+            }
+            else if (canHaveTomislav == false)
+            {
+                Debug.Log("Cannot give Tomislav to this Tower Type!");
             }
         }
     }

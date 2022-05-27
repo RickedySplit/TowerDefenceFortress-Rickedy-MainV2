@@ -149,13 +149,13 @@ public class TowerDefenceAITest_V1 : MonoBehaviour
     {
         if (jarated == true)
         {
-            JarateTimer = 2.5f;
+            JarateTimer = 3.5f;
         }
         else if (jarated == false)
         {
             JarateDropletParticles.Play();
             jarated = true;
-            JarateTimer = 2.5f;
+            JarateTimer = 3.5f;
         }
     }
 

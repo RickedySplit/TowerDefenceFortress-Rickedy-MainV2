@@ -244,9 +244,13 @@ public class TurretScript : MonoBehaviour
             }
         }
 
-        if (ClosestEnemy && Vector3.Distance(transform.position, ClosestEnemy.transform.position) <= Range)
+        if (ClosestEnemy != null && Vector3.Distance(transform.position, ClosestEnemy.transform.position) <= Range)
         {
             Target = ClosestEnemy;
+        }
+        else
+        {
+            Target = null;
         }
     }
 

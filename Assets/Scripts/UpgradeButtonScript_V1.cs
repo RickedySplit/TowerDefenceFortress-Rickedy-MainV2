@@ -14,6 +14,8 @@ public class UpgradeButtonScript_V1 : MonoBehaviour
     public ParticleSystem selectionParticle;
     public GameObject visionSphere;
 
+    public bool isFloorObject = false;
+
     void Awake()
     {
         playerEmptyObj = GameObject.Find("PlayerEmptyObject");
@@ -25,6 +27,15 @@ public class UpgradeButtonScript_V1 : MonoBehaviour
 
     void Update()
     {
+        if (isFloorObject == true)
+        {
+            if (Input.GetMouseButtonDown(1))
+            {
+                playerEmptyObj.GetComponent<PlayerResourcesScript>().SetUpgradeTarget(self);
+                //upgradePanel.GetComponent<UpgradePanelScript>().SetUpgradeTarget(self, UsedProjectile);
+            }
+        }
+
         if (playerEmptyObj.GetComponent<PlayerResourcesScript>().currentlySelectedTower == self)
         {
             isCurrentlySelected = true;
@@ -62,8 +73,11 @@ public class UpgradeButtonScript_V1 : MonoBehaviour
 
     public void OnMouseUpAsButton()
     {
-        playerEmptyObj.GetComponent<PlayerResourcesScript>().SetUpgradeTarget(self);
-        //upgradePanel.GetComponent<UpgradePanelScript>().SetUpgradeTarget(self, UsedProjectile);
+        if (isFloorObject == false)
+        {
+            playerEmptyObj.GetComponent<PlayerResourcesScript>().SetUpgradeTarget(self);
+            //upgradePanel.GetComponent<UpgradePanelScript>().SetUpgradeTarget(self, UsedProjectile);
+        }
 
     }
 

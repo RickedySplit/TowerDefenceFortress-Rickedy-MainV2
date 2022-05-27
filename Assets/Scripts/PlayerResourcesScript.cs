@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerResourcesScript : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class PlayerResourcesScript : MonoBehaviour
     public int playerLives;
     public TMP_Text playerLivesText;
     public GameObject currentlySelectedTower;
+    public int robotsKilled = 0;
+    public TMP_Text robotsKilledText;
 
     public GameObject ScoutTowerBlueprint;
     public GameObject SoldierTowerBlueprint;
@@ -109,6 +112,13 @@ public class PlayerResourcesScript : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
+        if(playerLives <= 0)
+        {
+            SceneManager.LoadScene("3DSceneTest_V1");
+        }
+
+
+        robotsKilledText.text = "Robots Killed: " + robotsKilled.ToString();
         playerMoneyText.text = "Current Money: $" + playerMoney.ToString();
         playerLivesText.text = playerLives.ToString() + " Lives";
     }

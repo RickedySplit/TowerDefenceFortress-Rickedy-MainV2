@@ -8,6 +8,7 @@ public class GlobalData : MonoBehaviour
     public Transform[] PathNodes;
 
     public GameObject[] EnemiesInScene;
+    public Transform StartPoint;
 
     private void Update()
     {

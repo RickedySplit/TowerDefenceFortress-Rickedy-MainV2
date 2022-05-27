@@ -230,6 +230,7 @@ public class TowerDefenceAITest_V1 : MonoBehaviour
 
             if(health <= 0)
             {
+                playerEmptyObject.GetComponent<PlayerResourcesScript>().robotsKilled =+ 1;
                 playerEmptyObject.GetComponent<PlayerResourcesScript>().GivePlayerMoney(moneyRewardOnDeath);
                 Destroy(gameObject);
             }
@@ -240,6 +241,7 @@ public class TowerDefenceAITest_V1 : MonoBehaviour
 
             if(health <= 0)
             {
+                playerEmptyObject.GetComponent<PlayerResourcesScript>().robotsKilled++;
                 playerEmptyObject.GetComponent<PlayerResourcesScript>().GivePlayerMoney(moneyRewardOnDeath);
                 Destroy(gameObject);
             }

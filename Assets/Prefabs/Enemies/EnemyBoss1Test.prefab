@@ -221,7 +221,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1253301895398915985}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4.25, y: -3.25, z: 4.25}
   m_Children:
   - {fileID: 8928624166622820666}
@@ -315,8 +315,8 @@ MonoBehaviour:
   MoveSpeed: 6
   currentMoveSpeed: 2
   slowedMoveSpeed: 0
-  maxHealth: 60
-  health: 60
+  maxHealth: 100
+  health: 100
   DistanceToNode: 0
   TrueDistance: 0
   healthBarSlider: {fileID: 7822524224556080061}

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class UpgradePanelScript : MonoBehaviour
 {
@@ -46,6 +47,39 @@ public class UpgradePanelScript : MonoBehaviour
     public int tomislavUpgradeCost = 120;
     public bool canHaveTomislav = false;
 
+    public TMP_Text fireRateUpgradeText;
+    public TMP_Text rangeUpgradeText;
+    public TMP_Text damageUpgradeText;
+    public TMP_Text directHitWeaponText;
+    public TMP_Text sydneySleeperWeaponText;
+    public TMP_Text forceANatureWeaponText;
+    public TMP_Text nataschaWeaponText;
+    public TMP_Text tomislavWeaponText;
+
+
+    public void Update()
+    {
+        fireRateUpgradeText.text = "Upgrade Fire Rate $" + fireRateUpgradeCost.ToString() + " " + currentFireRateUpgradeAmount.ToString() + " / " + maxFireRateUpgradeAmount.ToString();
+        rangeUpgradeText.text = "Upgrade Range $" + rangeUpgradeCost.ToString() + " " + currentRangeUpgradeAmount.ToString() + " / " + maxRangeUpgradeAmount.ToString();
+        damageUpgradeText.text = "Upgrade Damage $" + damageUpgradeCost.ToString() + " " + currentDamageUpgradeAmount.ToString() + " / " + maxDamageUpgradeAmount.ToString();
+        
+        if(alreadyHasWeaponUpgrade == false)
+        {
+            directHitWeaponText.text = "Give Direct Hit $" + directHitUpgradeCost.ToString();
+            sydneySleeperWeaponText.text = "Give Sydney Sleeper $" + sydneySleeperUpgradeCost.ToString();
+            forceANatureWeaponText.text = "Give Force-A-Nature $" + forceANatureUpgradeCost.ToString();
+            nataschaWeaponText.text = "Give Natascha $" + nataschaUpgradeCost.ToString();
+            tomislavWeaponText.text = "Give Tomislav $" + tomislavUpgradeCost.ToString();
+        }
+        else if (alreadyHasWeaponUpgrade == true)
+        {
+            directHitWeaponText.text = "Can't buy, already have Weapon";
+            sydneySleeperWeaponText.text = "Can't buy, already have Weapon";
+            forceANatureWeaponText.text = "Can't buy, already have Weapon";
+            nataschaWeaponText.text = "Can't buy, already have Weapon";
+            tomislavWeaponText.text = "Can't buy, already have Weapon";  
+        }
+    }
 
     public void Start()
     {
@@ -76,7 +110,7 @@ public class UpgradePanelScript : MonoBehaviour
     {
         {
             //if(TurretScript.timeBetweenAttacks > 0.15f)
-            if(currentFireRateUpgradeAmount < maxFireRateUpgradeAmount)
+            if((currentFireRateUpgradeAmount < maxFireRateUpgradeAmount) && (PlayerResourcesScript.playerMoney >= fireRateUpgradeCost))
             {
                 PlayerResourcesScript.playerMoney -= fireRateUpgradeCost;
                 TurretScript.timeBetweenAttacks -= 0.1f;
@@ -89,7 +123,7 @@ public class UpgradePanelScript : MonoBehaviour
             {
                 Debug.Log("Can't upgrade Fire Rate Further");
             }
-            else if(PlayerResourcesScript.playerMoney >= fireRateUpgradeCost)
+            else if(PlayerResourcesScript.playerMoney < fireRateUpgradeCost)
             {
                 Debug.Log("Can't afford Fire Rate Upgrade");
             }
@@ -99,7 +133,7 @@ public class UpgradePanelScript : MonoBehaviour
     {
         {
             //if(TurretScript.Range < 24f)
-            if(currentRangeUpgradeAmount < maxRangeUpgradeAmount)
+            if((currentRangeUpgradeAmount < maxRangeUpgradeAmount) && (PlayerResourcesScript.playerMoney >= rangeUpgradeCost))
             {
                 PlayerResourcesScript.playerMoney -= rangeUpgradeCost;
                 TurretScript.Range += 1.5f;
@@ -112,7 +146,7 @@ public class UpgradePanelScript : MonoBehaviour
             {
                 Debug.Log("Can't upgrade Range Further");
             }
-            else if(PlayerResourcesScript.playerMoney >= rangeUpgradeCost)
+            else if(PlayerResourcesScript.playerMoney < rangeUpgradeCost)
             {
                 Debug.Log("Can't afford Range Upgrade");
             }
@@ -123,10 +157,10 @@ public class UpgradePanelScript : MonoBehaviour
     {
         {
             //if(TowerProjectileBase.damage < 32f)
-            if(currentDamageUpgradeAmount < maxDamageUpgradeAmount)
+            if((currentDamageUpgradeAmount < maxDamageUpgradeAmount) && (PlayerResourcesScript.playerMoney >= damageUpgradeCost))
             {
                 PlayerResourcesScript.playerMoney -= damageUpgradeCost;
-                TowerProjectileBase.damage += 1;
+                TowerProjectileBase.damage *= 1.5f;
                 TowerProjectileBase.explosionDamage += 0.25f;
                 Debug.Log("Damage has been upgraded");
                 damageUpgradeCost *= 2;
@@ -137,7 +171,7 @@ public class UpgradePanelScript : MonoBehaviour
             {
                 Debug.Log("Can't upgrade Damage Further");
             }
-            else if(PlayerResourcesScript.playerMoney >= damageUpgradeCost)
+            else if(PlayerResourcesScript.playerMoney < damageUpgradeCost)
             {
                 Debug.Log("Can't afford Damage Upgrade");
             }
@@ -147,12 +181,12 @@ public class UpgradePanelScript : MonoBehaviour
     public void DirectHitUpgrade()
     {
         {
-            if((alreadyHasWeaponUpgrade == false) && (canHaveDirectHit == true))
+            if((alreadyHasWeaponUpgrade == false) && (canHaveDirectHit == true) && (PlayerResourcesScript.playerMoney >= directHitUpgradeCost))
             {
                 PlayerResourcesScript.playerMoney -= directHitUpgradeCost;
-                TowerProjectileBase.damage += 14;
-                TowerProjectileBase.explosionDamage -= 1f;
-                TowerProjectileBase.explosionRange -= 3f;
+                //TowerProjectileBase.damage += 14;
+                TowerProjectileBase.explosionDamage *= 3f;
+                TowerProjectileBase.explosionRange *= 0.25f;
                 TowerProjectileBase.maxLifetime += 2f;
                 TurretScript.ProjectileForwardSpeed *= 2;
 
@@ -166,7 +200,7 @@ public class UpgradePanelScript : MonoBehaviour
             {
                 Debug.Log("You Already have a Weapon!");
             }
-            else if(PlayerResourcesScript.playerMoney >= directHitUpgradeCost)
+            else if(PlayerResourcesScript.playerMoney < directHitUpgradeCost)
             {
                 Debug.Log("Can't afford the Direct Hit!");
             }
@@ -180,7 +214,7 @@ public class UpgradePanelScript : MonoBehaviour
     public void SydneySleeperUpgrade()
     {
         {
-            if((alreadyHasWeaponUpgrade == false) && (canHaveSydneySleeper == true))
+            if((alreadyHasWeaponUpgrade == false) && (canHaveSydneySleeper == true) && (PlayerResourcesScript.playerMoney >= sydneySleeperUpgradeCost))
             {
                 PlayerResourcesScript.playerMoney -= sydneySleeperUpgradeCost;
                 TowerProjectileBase.damage = 1;
@@ -200,7 +234,7 @@ public class UpgradePanelScript : MonoBehaviour
             {
                 Debug.Log("You Already have a Weapon!");
             }
-            else if(PlayerResourcesScript.playerMoney >= sydneySleeperUpgradeCost)
+            else if(PlayerResourcesScript.playerMoney < sydneySleeperUpgradeCost)
             {
                 Debug.Log("Can't afford the Sydney Sleeper!");
             }
@@ -214,11 +248,11 @@ public class UpgradePanelScript : MonoBehaviour
     public void ForceANatureUpgrade()
     {
         {
-            if ((alreadyHasWeaponUpgrade == false) && (canHaveForceANature == true))
+            if ((alreadyHasWeaponUpgrade == false) && (canHaveForceANature == true) && (PlayerResourcesScript.playerMoney >= forceANatureUpgradeCost))
             {
                 PlayerResourcesScript.playerMoney -= forceANatureUpgradeCost;
-                TowerProjectileBase.damage *= 4.5f;
-                TurretScript.Range *= 0.8f;
+                TowerProjectileBase.damage *= 3f;
+                TurretScript.Range *= 0.75f;
                 TurretScript.timeBetweenAttacks += 1f;
 
                 Debug.Log("Force-A-Nature Acquired!");
@@ -231,7 +265,7 @@ public class UpgradePanelScript : MonoBehaviour
             {
                 Debug.Log("You Already have a Weapon!");
             }
-            else if (PlayerResourcesScript.playerMoney >= forceANatureUpgradeCost)
+            else if (PlayerResourcesScript.playerMoney < forceANatureUpgradeCost)
             {
                 Debug.Log("Can't afford the Force-A-Nature!");
             }
@@ -245,7 +279,7 @@ public class UpgradePanelScript : MonoBehaviour
     public void NataschaUpgrade()
     {
         {
-            if ((alreadyHasWeaponUpgrade == false) && (canHaveNatascha == true))
+            if ((alreadyHasWeaponUpgrade == false) && (canHaveNatascha == true) && (PlayerResourcesScript.playerMoney >= nataschaUpgradeCost))
             {
                 PlayerResourcesScript.playerMoney -= nataschaUpgradeCost;
                 TowerProjectileBase.damage *= 0.65f;
@@ -263,7 +297,7 @@ public class UpgradePanelScript : MonoBehaviour
             {
                 Debug.Log("You Already have a Weapon!");
             }
-            else if (PlayerResourcesScript.playerMoney >= nataschaUpgradeCost)
+            else if (PlayerResourcesScript.playerMoney < nataschaUpgradeCost)
             {
                 Debug.Log("Can't afford the Natascha!");
             }
@@ -277,7 +311,7 @@ public class UpgradePanelScript : MonoBehaviour
     public void TomislavUpgrade()
     {
         {
-            if ((alreadyHasWeaponUpgrade == false) && (canHaveTomislav == true))
+            if ((alreadyHasWeaponUpgrade == false) && (canHaveTomislav == true) && (PlayerResourcesScript.playerMoney >= tomislavUpgradeCost))
             {
                 PlayerResourcesScript.playerMoney -= tomislavUpgradeCost;
                 TurretScript.Range *= 1.75f;
@@ -293,7 +327,7 @@ public class UpgradePanelScript : MonoBehaviour
             {
                 Debug.Log("You Already have a Weapon!");
             }
-            else if (PlayerResourcesScript.playerMoney >= tomislavUpgradeCost)
+            else if (PlayerResourcesScript.playerMoney < tomislavUpgradeCost)
             {
                 Debug.Log("Can't afford the Tomislav!");
             }

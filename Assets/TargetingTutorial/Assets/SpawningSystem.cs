@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpawningSystem : MonoBehaviour
 {
     public GlobalData GameData;
-    public Transform StartPoint;
+
     public GameObject[] EnemyPrefabs;
     public float SpawnDelay = 0.5f;
     float Delay;
@@ -27,7 +27,7 @@ public class SpawningSystem : MonoBehaviour
         {
             int Rand = Random.Range(0, EnemyPrefabs.Length);
 
-            Instantiate(EnemyPrefabs[Rand], StartPoint.position, Quaternion.identity);
+            Instantiate(EnemyPrefabs[Rand], GameData.StartPoint.position, Quaternion.identity);
 
             GameData.UpdateArrays();
 

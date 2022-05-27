@@ -41,11 +41,11 @@ public class TowerProjectileBase : MonoBehaviour
     private void Update()
     {
         //When to explode:
-        if (collisions > maxCollisions) Explode();
+        if (collisions >= maxCollisions) DestroyDelay();
 
         //Count down lifetime
         maxLifetime -= Time.deltaTime;
-        if (maxLifetime <= 0 ) Explode();
+        if (maxLifetime <= 0 ) DestroyDelay();
     }
 
     private void Explode()
@@ -70,6 +70,8 @@ public class TowerProjectileBase : MonoBehaviour
                 }
                 //Get component of enemy and call Take Damage
                 enemies[i].GetComponent<TowerDefenceAITest_V1>().TakeDamage(explosionDamage);
+
+                DestroyDelay();
         }
 
         //Add a small delay to projectile destruction
@@ -84,13 +86,15 @@ public class TowerProjectileBase : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         //Count up collisions
-        collisions++;
 
         //Explode if bullet hits an enemy directly and explodeOnTouch is activated
-        if (collision.collider.CompareTag("EnemyTag") && explodeOnTouch) Explode();
+        if ((collision.collider.CompareTag("EnemyTag")) && (explodeOnTouch) && (collisions < maxCollisions))
+        {
+            Explode();
+        }
 
         GameObject other = collision.gameObject;
-        if (collision.collider.CompareTag("EnemyTag") && !explodeOnTouch)
+        if ((collision.collider.CompareTag("EnemyTag")) && (!explodeOnTouch) && (collisions < maxCollisions))
         {
             other.GetComponent<TowerDefenceAITest_V1>().TakeDamage(damage);
             //collided = true;
@@ -109,7 +113,8 @@ public class TowerProjectileBase : MonoBehaviour
             //Debug.Log("Collided with Enemy");
             var impact = Instantiate (impactVFX, collision.contacts[0].point, Quaternion.identity) as GameObject;
             Destroy(impact, 2);
-            Destroy (gameObject);
+            //Destroy (gameObject);
+            collisions++;
         }
     }
 
